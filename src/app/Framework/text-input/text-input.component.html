@@ -1,0 +1,75 @@
+<div class="form-floating">
+  <input
+    [ngClass]="
+      controlDir && controlDir.control && controlDir.control.touched
+        ? !controlDir.control.valid
+          ? 'is-invalid'
+          : 'is-valid'
+        : ''
+    "
+    [type]="type"
+    [disabled]="disabled"
+    (input)="onChange($any($event.target).value)"
+    (blur)="onTouched()"
+    id="{{ label }}"
+    #input
+    class="form-control"
+    placeholder="{{ label }}"
+  />
+
+  <div
+    *ngIf="
+      controlDir &&
+      controlDir.control &&
+      controlDir.control.status === 'PENDING'
+    "
+    class="fa fa-spinner fa-spin loader"
+  ></div>
+  <label for="{{ label }}">{{ label }}</label>
+  <div
+    class="invalid-feedback2"
+    [ngClass]="
+      controlDir &&
+      controlDir.control &&
+      !controlDir.control.valid &&
+      controlDir.control.touched
+        ? ''
+        : 'hidden'
+    "
+  >
+    <label
+      [ngClass]="
+        controlDir.control?.errors?.required ? 'invalid-feedback2' : 'hidden'
+      "
+      >{{ label }} is required</label
+    >
+    <label
+      style="position: absolute; left: 0.2rem"
+      [ngClass]="
+        controlDir.control?.errors?.minlength ? 'invalid-feedback2' : 'hidden'
+      "
+      >Password Length is lower than 10 characters</label
+    >
+    <label
+      style="position: absolute; left: 0.2rem"
+      [ngClass]="
+        controlDir.control?.errors?.pattern ? 'invalid-feedback2' : 'hidden'
+      "
+      >Email is incorrect</label
+    >
+  </div>
+
+  <div
+    class="invalid-feedback d-block"
+    *ngIf="
+      controlDir &&
+      controlDir.control &&
+      !controlDir.control.valid &&
+      controlDir.control.dirty
+    "
+  >
+    <span *ngIf="controlDir.control.errors?.emailExists"
+      >Email address is in use</span
+    >
+  </div>
+</div>

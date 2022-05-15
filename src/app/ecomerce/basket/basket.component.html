@@ -1,0 +1,84 @@
+<app-nav-bar></app-nav-bar>
+<section class="body-page">
+  <div class="container-fluid container-pad-left-right-0">
+    <div class="row">
+      <div class="card-body background-card-color">
+        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+          <div class="card border-2 shadow my-5">
+            <div class="container">
+              <article *ngFor="let basket of obs$ | async; let i = index">
+                <div class="row mb-2">
+                  <div class="col-4">
+                    <img
+                      [src]="basket.photo"
+                      class="img-fluid"
+                      style="border: 1px solid black"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <label>{{ basket.courseDesc }}</label>
+                    <div class="row g-0">
+                      <div class="col-4 align-self-end">
+                        <label>Months</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          [value]="basket.unit"
+                          #unit
+                          (change)="changeValue(unit, i)"
+                        />
+                      </div>
+                      <div class="col-4 align-self-end">
+                        <label>Price</label>
+                        <label class="form-control">{{ basket.price }}</label>
+                      </div>
+                      <div class="col-4 align-self-end">
+                        <label>Total</label>
+                        <label class="form-control">{{
+                          basket.unit * basket.price
+                        }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="row">
+                <div class="col-8 offset-4 mb-2">
+                  <hr />
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <label>Licenses</label>
+                      <label class="form-control">{{ totalCourse }}</label>
+                    </div>
+
+                    <div class="col-4 offset-4">
+                      <label>Pay</label>
+                      <label class="form-control"> {{ totalPaid }}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <button class="btn btn-primary" style="width: 6rem">
+                  Save Cart
+                </button>
+
+                <button
+                  (click)="checkout()"
+                  class="btn btn-success mx-3"
+                  style="width: 7rem"
+                >
+                  CheckOut!
+                </button>
+
+                <button class="btn btn-secondary mx-3" style="width: 7rem">
+                  Return
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+<div class="table-responsive-lg">
+  <div class="row">
+    <div class="col-12">
+      <table class="table border border-3 shadow-lg table-hover table-sm">
+        <thead>
+          <tr class="d-flex pb-1">
+            <th class="col-7 align-items-center">
+              <label>Name</label>
+              <div class="row g-0">
+                <div class="col-7">
+                  <input #title class="form-control" type="text" />
+                </div>
+                <div class="col-1">
+                  <fa-icon
+                    class="cursor"
+                    (click)="changeOrder('0')"
+                    [icon]="faIconorder0"
+                    [size]="'2x'"
+                  ></fa-icon>
+                </div>
+              </div>
+            </th>
+
+            <th class="col-4 align-items-center">
+              <label>Teacher</label>
+              <div class="row g-0">
+                <div class="col-10">
+                  <select
+                    (change)="filterTeacher($event)"
+                    #teacherData
+                    class="form-control"
+                  >
+                    <option value="-1"></option>
+                    <option
+                      *ngFor="let teacher of Teachers"
+                      [value]="teacher.id"
+                    >
+                      {{ teacher.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <fa-icon
+                    class="cursor"
+                    (click)="changeOrder('1')"
+                    [icon]="faIconorder1"
+                    [size]="'2x'"
+                  ></fa-icon>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let course of (CourseData$ | async)?.data"
+            (click)="editCourse(course.id)"
+            [ngClass]="idSelected === course.id ? 'selected' : ''"
+            class="d-flex"
+          >
+            <td class="col-7">{{ course.name }}</td>
+            <td class="col-4">{{ course.teacherName }}</td>
+
+            <td class="col-1">
+              <fa-icon
+                (click)="deleteCourse(course.id)"
+                [icon]="faIconTrash"
+                [size]="'lg'"
+              ></fa-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row g-0">
+  <div class="col-sm-12 mt-1">
+    <pagination
+      [totalItems]="courseService.totalCourses"
+      [boundaryLinks]="true"
+      [customPreviousTemplate]="previousTemplate"
+      [customNextTemplate]="nextTemplate"
+      [customFirstTemplate]="firstTemplate"
+      [customLastTemplate]="lastTemplate"
+      class="color"
+      #page
+      [maxSize]="3"
+      [itemsPerPage]="pageSize"
+      (pageChanged)="changePage($event)"
+    >
+      <ng-template #firstTemplate>First</ng-template>
+      <ng-template #nextTemplate
+        ><fa-icon class="cursor" [icon]="faArrowRight"></fa-icon
+      ></ng-template>
+      <ng-template #previousTemplate
+        ><fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
+      </ng-template>
+      <ng-template #lastTemplate> Last </ng-template>
+    </pagination>
+  </div>
+</div>

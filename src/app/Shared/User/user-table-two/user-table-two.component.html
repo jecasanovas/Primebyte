@@ -1,0 +1,97 @@
+<div class="table-responsive-lg">
+  <div class="row">
+    <div class="col-12">
+      <table class="table border border-3 shadow-lg table-sm table-hover">
+        <thead>
+          <tr class="d-flex">
+            <th class="col-4">
+              <div class="row g-0 justify-content-left">
+                <div class="col-10">
+                  <label for="cp">CP</label>
+                  <input
+                    #cpsearch
+                    id="cp"
+                    class="form-control filter"
+                    type="text"
+                  />
+                </div>
+                <div class="col-1" style="align-self: flex-end">
+                  <fa-icon
+                    style="cursor: pointer"
+                    (click)="changeOrder('0')"
+                    [icon]="faIconorder0"
+                    [size]="'2x'"
+                  ></fa-icon>
+                </div>
+              </div>
+            </th>
+            <th class="col-7">
+              <label>Address</label>
+              <div class="row g-0">
+                <div class="col-11">
+                  <input type="text" #street class="form-control filter" />
+                </div>
+                <div class="col-1">
+                  <fa-icon
+                    style="cursor: pointer"
+                    (click)="changeOrder('1')"
+                    [icon]="faIconorder1"
+                    [size]="'2x'"
+                  ></fa-icon>
+                </div>
+              </div>
+            </th>
+
+            <th class="col-1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let address of (addressData$ | async)?.data"
+            class="d-flex"
+            (click)="editAddress(address.id)"
+            [ngClass]="address.id === idSelected ? 'selected' : ''"
+          >
+            <td class="col-4">
+              {{ address.cp }}
+            </td>
+            <td class="col-7">{{ address.direction }}</td>
+            <td class="col-1" (click)="deleteAddress(address.id)">
+              <fa-icon
+                style="cursor: pointer"
+                [icon]="faIconTrash"
+                [size]="'lg'"
+              ></fa-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 mt-10">
+    <pagination
+      [boundaryLinks]="true"
+      [customPreviousTemplate]="previousTemplate"
+      [customNextTemplate]="nextTemplate"
+      [customFirstTemplate]="firstTemplate"
+      [customLastTemplate]="lastTemplate"
+      [totalItems]="userService.totalAddress"
+      class="color"
+      #page
+      [maxSize]="5"
+      [itemsPerPage]="userService.totalAddress"
+      (pageChanged)="changePage($event)"
+    >
+      <ng-template #firstTemplate>First</ng-template>
+      <ng-template #nextTemplate>
+        <fa-icon class="cursor" [icon]="faArrowRight"></fa-icon>
+      </ng-template>
+      <ng-template #previousTemplate>
+        <fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
+      </ng-template>
+      <ng-template #lastTemplate> Last </ng-template>
+    </pagination>
+  </div>
+</div>

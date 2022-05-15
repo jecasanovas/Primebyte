@@ -1,0 +1,24 @@
+<app-nav-bar></app-nav-bar>
+<div class="body-page container-pad-left-right-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card-body background-card-color">
+        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+          <div class="card border-2 shadow my-5">
+            <tabset #tabset>
+              <tab heading="User">
+                <app-user-tab-one></app-user-tab-one>
+              </tab>
+              <tab heading="Addresses" (selectTab)="selectTab(1)">
+                <app-user-tab-two #addresstab></app-user-tab-two>>
+              </tab>
+              <tab heading="Payment Info" (selectTab)="selectTab(2)">
+                <app-user-tab-three #paymentinfotab></app-user-tab-three>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

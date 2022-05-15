@@ -1,0 +1,76 @@
+.color-page {
+  background: #383a4f;
+}
+
+.form-control-style {
+  color: gray;
+  margin: 0.3rem;
+}
+
+.text-control-style2 {
+  color: gray;
+}
+
+.text-control-style2 {
+  color: gray;
+}
+
+.title {
+  text-align: left;
+  margin-top: 1rem;
+  color: white;
+  background-color: lightseagreen;
+  padding: 0.5rem;
+
+  margin-bottom: 0.4rem;
+}
+
+img {
+  border: 1px dotted black;
+  height: 15rem;
+  width: 15rem;
+}
+
+.photo {
+  margin: 0.5rem;
+  padding: 2px;
+}
+
+button {
+  width: 6rem;
+}
+table {
+  table-layout: fixed;
+}
+
+tr {
+  cursor: pointer;
+  border-style: none;
+}
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+}
+.table > :not(:first-child) {
+  border-top: 1px solid white;
+}
+
+thead {
+  background-color: lightseagreen;
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+tr:hover {
+  background-color: lightslategray;
+  cursor: pointer;
+  color: white;
+}
+.selected {
+  background-color: lightcoral;
+  color: white;
+  font-weight: bolder;
+}

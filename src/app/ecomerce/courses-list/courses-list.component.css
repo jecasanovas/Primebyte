@@ -1,0 +1,45 @@
+::ng-deep .page-item.active .page-link {
+  font-weight: bold !important;
+  background-color: lightcoral;
+  color: white;
+  border: 1px solid lightcoral;
+}
+::ng-deep .page-link {
+  color: black;
+}
+.cursor {
+  cursor: pointer;
+}
+
+.items {
+
+  max-height: 15rem;
+
+  overflow: auto;
+  margin-right: 1rem;
+  min-width: 17rem;
+  max-width: 20rem;
+
+}
+.header {
+  border: 1px grey dotted;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  margin-right:1rem;
+
+  background-color: lightseagreen;
+  min-width: 17rem;
+  max-width: 20rem;
+}
+ul {
+  padding-left: 0rem;
+}
+
+label {
+  text-overflow: ellipsis;
+}
+
+.flex-gap-1 {
+  gap:0.5rem;
+}

@@ -1,0 +1,14 @@
+<article
+  class="card mb-3"
+  (click)="getCourseSelected(Course.id)"
+  style="width: 18rem"
+>
+  <img [src]="Course.photo" style="width: 100%" style="cursor: pointer" />
+  <div class="card-header text-format" style="min-height: 7.5rem">
+    <h5>{{ Course.name }}</h5>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">Teacher:{{ Course.teacherName }}</h6>
+    <p class="card-text">Technology:{{ Course.technologyName }}</p>
+  </div>
+</article>

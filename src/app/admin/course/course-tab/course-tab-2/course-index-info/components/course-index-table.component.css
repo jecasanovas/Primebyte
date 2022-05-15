@@ -1,0 +1,38 @@
+table {
+  table-layout: fixed;
+  height: 47rem;
+}
+
+tr {
+  cursor: pointer;
+  border-style: none;
+}
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+}
+.table > :not(:first-child) {
+  border-top: 1px solid white;
+}
+
+thead {
+  background-color: lightseagreen;
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.selected {
+  background-color: lightcoral;
+  color: white;
+  font-weight: bolder;
+}
+
+.cursor {
+  cursor: pointer;
+}
+tbody {
+  height: 40rem;
+}

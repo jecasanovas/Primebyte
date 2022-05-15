@@ -1,0 +1,40 @@
+.ng-select ::ng-deep .ng-arrow {
+  display: none;
+}
+.ng-select ::ng-deep .ng-arrow-wrapper {
+  height: 14px;
+  width: 14px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  margin-right: 12px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.ng-select-opened ::ng-deep .ng-arrow-wrapper {
+  transform: rotate(180deg);
+}
+.text-control-style2 {
+  color: gray;
+  z-index: 1;
+}
+.form-select-float {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  z-index: 1;
+}
+.invalid {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.invalid-feedback2 {
+  width: 100%;
+
+  font-size: 0.875em;
+  color: #dc3545;
+}

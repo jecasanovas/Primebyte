@@ -1,0 +1,13 @@
+.items {
+  height: 12rem;
+
+  overflow-y: scroll;
+}
+.header {
+  border: 1px grey dotted;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  margin: 0px;
+  background-color: lightseagreen;
+}

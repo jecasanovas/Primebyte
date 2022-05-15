@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="Form" autocomplete="off">
+    <div class="row">
+      <div class="col-12 col-sm-3">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lessonID"
+            id="floatingInput3"
+            #courseIdxlesson
+            placeholder="Number"
+          />
+          <label for="floatingInput3">Number</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-9">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="indexDescription"
+            id="floatingInput2"
+            #courseIdx
+            placeholder="Index"
+          />
+          <label for="floatingInput2">Index Description</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-3">
+        <div style="width: 7rem" class="mb-2">
+          <button (click)="downloadFile()" class="btn btn-secondary w-100">
+            Download
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-2">
+        <input class="form-control w-100" type="file" id="formFile" #fileidx />
+      </div>
+      <div class="col-12 col-sm-6 mb-2" style="width: 9rem">
+        <button
+          (click)="uploadCourseIndex(fileidx)"
+          class="btn btn-secondary"
+          style="width: 100%"
+        >
+          Upload
+        </button>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col-2 mb-1" style="width: 6rem">
+        <button class="btn btn-primary w-100">Add</button>
+      </div>
+
+      <div class="col-2" style="width: 6rem">
+        <button class="btn btn-success w-100" (click)="saveIndex()">
+          Save
+        </button>
+      </div>
+    </div>
+    <app-course-index-table
+      #tmplVarCourseIndex
+      (editCourseIndex$)="editCourseIndex($event)"
+      (deleteCourseIndex$)="deleteCourseIndex($event)"
+    ></app-course-index-table>
+  </form>
+</div>

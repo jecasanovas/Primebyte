@@ -1,0 +1,9 @@
+.hidden {
+  visibility: hidden;
+}
+.invalid-feedback2 {
+  width: 100%;
+
+  font-size: 0.875em;
+  color: #dc3545;
+}

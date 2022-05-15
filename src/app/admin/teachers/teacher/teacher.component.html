@@ -1,0 +1,130 @@
+<form [formGroup]="Form" autocomplete="off">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <app-text-input
+          [type]="'text'"
+          [label]="'name'"
+          [id]="'name'"
+          formControlName="name"
+          name="name"
+          placeholder="Teacher"
+          #teacher
+        ></app-text-input>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <app-text-input
+          [type]="'text'"
+          [label]="'surname'"
+          [id]="'surname'"
+          formControlName="surname"
+          name="surname"
+          placeholder="Surname"
+        ></app-text-input>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <app-select-input
+          [Items]="Countries"
+          [label]="'Country'"
+          [bindId]="'id'"
+          [bindValue]="'countryDesc'"
+          formControlName="country"
+          #select
+        ></app-select-input>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <app-text-input
+          [type]="'text'"
+          [label]="'personal site'"
+          [id]="'personal_site'"
+          formControlName="site"
+          name="personal site"
+          placeholder="personal site"
+        ></app-text-input>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <app-text-input
+        [type]="'text'"
+        [label]="'social networks'"
+        [id]="'sorcial_network'"
+        formControlName="social"
+        name="social networks"
+      ></app-text-input>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 align-self-start">
+        <input
+          #fileUpload
+          class="form-control"
+          type="file"
+          id="formFile"
+          (change)="checkFile($event)"
+        />
+        <div class="row">
+          <div class="col-4">
+            <button (click)="createNew()" class="btn mt-3 btn-primary save">
+              Add New
+            </button>
+          </div>
+          <div class="col-4">
+            <button (click)="onSubmit()" class="btn btn-success mt-3 mx-3">
+              Save
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="mt-5">
+                <pagination
+                  [totalItems]="totalRows"
+                  class="color"
+                  #page
+                  [itemsPerPage]="6"
+                  (pageChanged)="changePage($event)"
+                ></pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 mb-3">
+        <img
+          class="img-fluid"
+          [src]="imageShow ?? emptyFile"
+          alt="Photo"
+          class="mx-3"
+        />
+      </div>
+    </div>
+    <div class="table-responsive-xs">
+      <div class="row mx-1">
+        <div class="col-12"></div>
+        <table class="table border border-3 shadow-lg">
+          <thead>
+            <tr class="d-flex">
+              <th class="col-8">Name</th>
+              <th class="col-3">Country</th>
+              <th class="col-1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let teacher of Teachers"
+              (click)="editTeacher(teacher.id)"
+              [ngClass]="teacher.id === idSelected ? 'selected' : ''"
+              class="d-flex"
+            >
+              <td class="col-8">{{ teacher.name }} {{ teacher.surname }}</td>
+              <td class="col-3">{{ teacher.countryName }}</td>
+              <td class="col-1">
+                <i (click)="deleteTeacher(teacher.id)" class="fa fa-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>

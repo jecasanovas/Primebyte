@@ -1,0 +1,105 @@
+<div class="container">
+  <form [formGroup]="Form" autocomplete="off">
+    <div class="row">
+      <div class="col-lg-12 col-xxl-3">
+        <img
+          style="border: 1px dotted black; width: 11rem; height: 11rem"
+          [src]="imgShow"
+          #image
+          onerror="this.src =
+            '../assets/no-image-icon.png'"
+        />
+      </div>
+      <div class="col-lg-12 col-xxl-9 mt-2">
+        <app-text-input
+          [type]="'text'"
+          [label]="'Name'"
+          [id]="'id'"
+          formControlName="Course"
+          name="Course"
+          placeholder="Course"
+          #course
+        ></app-text-input>
+
+        <div class="row g-0">
+          <div class="col-12">
+            <app-select-input
+              [Items]="Teachers"
+              [label]="'Teacher'"
+              [bindId]="'id'"
+              [bindValue]="'name'"
+              formControlName="Teacher"
+              #teacher
+            ></app-select-input>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-12">
+            <input
+              type="file"
+              id="formFile"
+              class="form-control"
+              (change)="checkFile($event)"
+              #fileUpload
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mt-2">
+      <app-text-input
+        [type]="'text'"
+        [label]="'Url'"
+        formControlName="Url"
+        name="link"
+        placeholder="Url Course"
+      ></app-text-input>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <app-select-input
+          [Items]="Technology"
+          [label]="'Technology'"
+          [bindId]="'id'"
+          [bindValue]="'description'"
+          formControlName="Technology"
+          (clearValue)="onClear()"
+          (changeValue)="changeTechnology($event)"
+          #technology
+        ></app-select-input>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <app-select-input
+          [Items]="TechnologyDetail"
+          [label]="'TechnologyDetail'"
+          [bindId]="'id'"
+          [bindValue]="'description'"
+          formControlName="TechnologyDetail"
+          #techdetails
+        ></app-select-input>
+      </div>
+    </div>
+
+    <div class="row row justify-content-start">
+      <div class="col-2 mb-1" style="width: 6rem">
+        <button (click)="addCourse()" class="btn btn-primary w-100">Add</button>
+      </div>
+
+      <div class="col-2" style="width: 6rem">
+        <button
+          (click)="onSubmit()"
+          class="btn btn-success"
+          style="width: 100%"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  <app-course-main-info-table
+    (editCourse$)="editCourse($event)"
+    (deleteCourse$)="deleteCourse($event)"
+  ></app-course-main-info-table>
+</div>

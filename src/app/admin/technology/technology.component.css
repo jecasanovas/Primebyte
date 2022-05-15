@@ -1,0 +1,54 @@
+.form-control-style {
+  color: gray;
+  margin: 0.6rem;
+}
+
+li:hover {
+  background-color: lightslategray;
+  cursor: pointer;
+  color: white;
+}
+
+.selected {
+  background-color: lightcoral;
+  color: white;
+  font-weight: bolder;
+}
+.label-info {
+  margin: 0;
+  font-size: small;
+  color: rgb(179, 120, 129);
+}
+
+.btn-add-save {
+  height: 3.5rem;
+}
+
+.header {
+  border: 1px grey dotted;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  margin: 0px;
+  background-color: lightseagreen;
+}
+
+.items {
+  height: 12rem;
+  margin-left: 1rem;
+  overflow: scroll;
+}
+.trash {
+  float: right;
+}
+
+
+.row-controls {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.floatingInput {
+  width: 90%;
+}

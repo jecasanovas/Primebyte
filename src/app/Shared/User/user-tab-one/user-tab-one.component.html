@@ -1,0 +1,148 @@
+<div class="container">
+  <form [formGroup]="formUser" [autocomplete]="false" [noValidate]="true">
+    <div class="row">
+      <div class="col-lg-12 col-xxl-3">
+        <img
+          style="border: 1px dotted black; width: 11rem; height: 11rem"
+          [src]="imgShow"
+          #image
+          onerror="this.src =
+            '../assets/no-image-icon.png'"
+        />
+      </div>
+
+      <div class="col-lg-12 col-xxl-9 mt-2">
+        <app-text-input
+          [type]="'text'"
+          [label]="'Email/login'"
+          [id]="'id'"
+          formControlName="email"
+          name="email"
+          #email
+          placeholder="email"
+          [disabled]="!showfield"
+        ></app-text-input>
+
+        <div class="row mb-3" *ngIf="showfield">
+          <div class="col-12">
+            <input
+              type="file"
+              id="formFile"
+              class="form-control"
+              (change)="checkFile($event)"
+              #fileUpload
+            />
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-12">
+            <app-text-input
+              [type]="'text'"
+              [label]="'Name'"
+              [id]="'id'"
+              formControlName="name"
+              name="Name"
+              placeholder="Name"
+              [disabled]="!showfield"
+            ></app-text-input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <app-text-input
+              [type]="'Text'"
+              [label]="'Surname'"
+              [id]="'id'"
+              formControlName="surname"
+              name="Name"
+              placeholder="Name"
+              [disabled]="!showfield"
+            ></app-text-input>
+          </div>
+        </div>
+        <div class="row" *ngIf="showfield">
+          <div class="col-xs-12 col-sm-6">
+            <app-select-input
+              [Items]="countriesUser"
+              [label]="'Country'"
+              [bindId]="'id'"
+              [bindValue]="'countryDesc'"
+              formControlName="country"
+              #countryRef
+              [disabled]="!showfield"
+            ></app-select-input>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <app-text-input
+              [type]="'Text'"
+              [label]="'Telephone'"
+              formControlName="telephone"
+              name="Telephone"
+              placeholder="Telephone"
+              [disabled]="!showfield"
+            ></app-text-input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="showfield">
+      <div class="col-12 mt-2">
+        <app-text-input
+          [type]="'text'"
+          [label]="'Description'"
+          formControlName="description"
+          name="link"
+          placeholder="Description"
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="showfield">
+      <div class="col-xs-12 col-sm-6">
+        <app-select-input
+          [Items]="Roles"
+          [label]="'Role'"
+          [bindId]="'id'"
+          [bindValue]="'description'"
+          formControlName="role"
+          [disabled]="!showfield"
+          #roleRef
+        ></app-select-input>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <app-text-input
+          [type]="'Password'"
+          [label]="'password'"
+          formControlName="password"
+          name="Password"
+          placeholder="Password"
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+      <div class="row row justify-content-start">
+        <div class="col-2 mb-1" style="width: 6rem">
+          <button (click)="addUser()" class="btn btn-primary w-100">Add</button>
+        </div>
+
+        <div class="col-2" style="width: 6rem">
+          <button
+            (click)="onSubmit()"
+            class="btn btn-success"
+            style="width: 100%"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-user-table-one
+    *ngIf="showTable"
+    #table
+    (deleteUser$)="deleteUser($event)"
+    (editUser$)="editUser($event)"
+  >
+  </app-user-table-one>
+</div>

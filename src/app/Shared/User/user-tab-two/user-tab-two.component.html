@@ -1,0 +1,122 @@
+<div class="container">
+  <form [formGroup]="formAddresses" autocomplete="off">
+    <div class="row">
+      <div class="col-12 mt-2">
+        <app-text-input
+          [type]="'text'"
+          [label]="'Direction (Street, number..)'"
+          [id]="'id'"
+          #email
+          formControlName="direction"
+          name="email"
+          placeholder="email"
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-4">
+        <app-text-input
+          [type]="'text'"
+          [label]="'CP'"
+          [id]="'id'"
+          formControlName="cp"
+          name="Name"
+          placeholder="Name"
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+      <div class="col-12 col-sm-4">
+        <app-select-input
+          [Items]="countriesUser"
+          [label]="'Country'"
+          [bindId]="'id'"
+          [bindValue]="'countryDesc'"
+          formControlName="country"
+          [disabled]="!showfield"
+          #countryref
+        ></app-select-input>
+      </div>
+      <div class="col-12 col-sm-4">
+        <app-select-input
+          [Items]="typeofDirection"
+          [label]="'Type of Address'"
+          [bindId]="'id'"
+          [bindValue]="'description'"
+          formControlName="typeofdirection"
+          [disabled]="!showfield"
+          #typeofAddressref
+        ></app-select-input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <app-select-input
+          [Items]="typeofDocument"
+          [label]="'Type of Document'"
+          [bindId]="'id'"
+          [bindValue]="'description'"
+          #typeofdocumentref
+          formControlName="typeofdocument"
+          [disabled]="!showfield"
+        ></app-select-input>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <app-text-input
+          [type]="'Text'"
+          [label]="'Document'"
+          formControlName="document"
+          placeholder="Tel."
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+      <div class="col-12 col-md-4">
+        <app-text-input
+          [type]="'Text'"
+          [label]="'Telephone'"
+          formControlName="telephone"
+          placeholder="Tel."
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <app-text-input
+          [type]="'text'"
+          [label]="'Description'"
+          formControlName="description"
+          name="link"
+          placeholder="Description"
+          [disabled]="!showfield"
+        ></app-text-input>
+      </div>
+    </div>
+
+    <div class="row row justify-content-start" *ngIf="showTable">
+      <div class="col-2 mb-1" style="width: 6rem">
+        <button class="btn btn-primary w-100" (click)="add()">Add</button>
+      </div>
+
+      <div class="col-2" style="width: 6rem">
+        <button
+          (click)="onSubmit()"
+          class="btn btn-success"
+          style="width: 100%"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  <app-user-table-two
+    *ngIf="showTable"
+    #table
+    (deleteAddress$)="deleteAddress($event)"
+    (editAddress$)="editAddress($event)"
+  >
+  </app-user-table-two>
+</div>

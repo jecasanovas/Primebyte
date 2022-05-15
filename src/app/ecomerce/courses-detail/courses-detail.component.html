@@ -1,0 +1,73 @@
+<app-nav-bar></app-nav-bar>
+<div class="body-page container-pad-left-right-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card-body background-card-color">
+        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+          <div class="card border-2 shadow my-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-lg-3">
+                  <img
+                    class="rounded mx-auto d-block img-fluid"
+                    style="border: 1px dotted black"
+                    [src]="imgShow"
+                    #image
+                    onerror="this.src =
+            '../assets/no-image-icon.png'"
+                  />
+                </div>
+                <div class="col-lg-12 col-lg-3">
+                  <h1>
+                    {{ courseInfo?.name }}
+                  </h1>
+                </div>
+                <div class="col-lg-12 col-lg-3">
+                  <h6>
+                    {{ courseInfo?.description }}
+                  </h6>
+                </div>
+                <div class="col-lg-12 col-lg-3">
+                  <h3>Teacher: {{ courseInfo?.teacherName }}</h3>
+                </div>
+                <div class="col-lg-12 col-lg-3">
+                  <h6>
+                    {{ courseInfo?.teacherDescription }}
+                  </h6>
+                </div>
+              </div>
+              <div class="row g-0 justify-content-end align-items-center mb-2">
+                <div class="col-12 col-lg-1">
+                  <label>Qty</label>
+                </div>
+                <div class="col-12 col-lg-3">
+                  <input #months type="number" class="form-control" />
+                </div>
+                <div class="col-12 col-lg-3">
+                  <button class="btn btn-primary" (click)="addtoCart(months)">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="header">
+                <label>Course's Index</label>
+              </div>
+
+              <div class="items">
+                <ul
+                  class="list-group"
+                  *ngFor="let coursedet of courseInfoDetail"
+                >
+                  <li class="list-group-item">{{ coursedet.description }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

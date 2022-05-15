@@ -1,0 +1,50 @@
+<div class="form-floating">
+  <label
+    class="select-label"
+    for="{{ label }}"
+    [ngClass]="cssfloatlabel ? 'form-select-float' : 'text-control-style2'"
+    >{{ label }}</label
+  >
+
+  <ng-select
+    [readonly]="disabled"
+    (keyup)="cssfloatlabel = true"
+    class="form-control"
+    [items]="Items"
+    (clear)="onClear($event)"
+    (change)="onChange($event)"
+
+    bindValue="{{ bindId }}"
+    [selectOnTab]="true"
+    id="{{ label }}"
+    #input
+    bindLabel="{{ bindValue }}"
+    appendTo="body"
+    [ngClass]="
+      controlDir && controlDir.control && controlDir.control.touched
+        ? !controlDir.control.valid
+          ? 'is-invalid'
+          : 'is-valid'
+        : ''
+    "
+    style="height: 3.5rem"
+  ></ng-select>
+  <div
+    class="invalid-feedback2"
+    [ngClass]="
+      controlDir &&
+      controlDir.control &&
+      !controlDir.control.valid &&
+      controlDir.control.touched
+        ? ''
+        : 'hidden'
+    "
+  >
+    <label
+      [ngClass]="
+        controlDir.control?.errors?.required ? 'invalid-feedback2' : 'hidden'
+      "
+      >{{ label }} is required</label
+    >
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<div class="body-page container-pad-left-right-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card-body background-card-color">
+        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+          <div class="card border-2 shadow my-5">
+            <tabset #tabset>
+              <tab heading="Course">
+                <app-course-main-info></app-course-main-info>
+              </tab>
+              <tab
+                (selectTab)="selectTab(1)"
+                *ngIf="courseService.IdCourse > 0"
+                heading="Index"
+              >
+                <app-course-index #tmplVarIndex></app-course-index>
+              </tab>
+
+              <tab
+                (selectTab)="selectTab(2)"
+                *ngIf="courseService.IdCourse > 0"
+                heading="More info"
+              >
+                <app-course-additional-info
+                  #tmplVarAdditionalInfo
+                ></app-course-additional-info>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

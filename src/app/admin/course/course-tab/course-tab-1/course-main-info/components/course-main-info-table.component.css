@@ -1,0 +1,34 @@
+table {
+  table-layout: fixed;
+  max-height: 26rem;
+}
+
+tr {
+  cursor: pointer;
+  border-style: none;
+}
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+}
+.table > :not(:first-child) {
+  border-top: 1px solid white;
+}
+
+thead {
+  background-color: lightseagreen;
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.selected {
+  background-color: lightcoral;
+  color: white;
+  font-weight: bolder;
+}
+.filter {
+  padding: 0 0 0 0.3rem;
+}

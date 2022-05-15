@@ -1,0 +1,18 @@
+::ng-deep .page-item.active .page-link {
+  font-weight: bold !important;
+  background-color: lightcoral;
+  color: white;
+  border: 1px solid lightcoral;
+}
+::ng-deep .page-link {
+  color: black;
+}
+.nav-tabs .nav-item.show .nav-link,
+::ng-deep .nav-tabs .nav-link.active {
+  font-weight: bold !important;
+  color: black;
+}
+.container-pad-left-right-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <textarea
+        class="form-control mb-3"
+        id="textarea"
+        rows="15"
+        placeholder="Teacher Description"
+        (change)="changeTextArea($event)"
+        [value]="description"
+      ></textarea>
+    </div>
+    <button class="btn btn-primary" (click)="saveinfo()">Save</button>
+  </div>
+</div>
