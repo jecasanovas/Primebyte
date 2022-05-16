@@ -11,7 +11,7 @@ import { Technology } from '../../Shared/Models/tecnology.interface';
   styleUrls: ['./technology.component.css'],
 })
 export class TechnologyComponent implements OnInit {
-  obsTechnology$: Observable<Technology[]> = this.dataService.getTechnology();
+  obsTechnology$!: Observable<Technology[]> ;
   @ViewChild('inputtechnology', { static: false }) inputtechnology!: ElementRef;
   @ViewChild('inputTechDetail', { static: false })
   inputTechDetail!: ElementRef;
@@ -38,11 +38,7 @@ export class TechnologyComponent implements OnInit {
       description: '',
       technologyId: 0,
     };
-    this.dataService.getTechnology().subscribe({
-      next: (result) => {
-        this.technology = result;
-      },
-    });
+    this.obsTechnology$ = this.dataService.getTechnology();
 
     this.dataService.getTechnologyDetail().subscribe({
       next: (result) => {

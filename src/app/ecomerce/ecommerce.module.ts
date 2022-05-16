@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { HomeComponent } from './home/home.component';
-import { CardComponent } from './card/card.component';
+import { CourseComponent } from './course/course.component';
 import { CheckoutTabComponent } from './checkout-tab/checkout-tab.component';
 import { CheckoutTab1Component } from './checkout-tab1/checkout-tab1.component';
 import { CheckoutTab2Component } from './checkout-tab2/checkout-tab2.component';
@@ -19,7 +19,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   declarations: [
     CoursesListComponent,
     HomeComponent,
-    CardComponent,
+    CourseComponent,
     ShopComponent,
     BasketComponent,
     CheckoutTabComponent,

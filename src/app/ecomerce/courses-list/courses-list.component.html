@@ -101,10 +101,10 @@
               class="card-body d-flex flex-wrap d-row justify-content-center justify-content-lg-start flex-gap-1"
             >
               <div *ngFor="let curso of Courses">
-                <app-card
+                <app-course
                   (courseSelected$)="getCourseSelected($event)"
                   [Course]="curso"
-                ></app-card>
+                ></app-course>
               </div>
             </div>
           </div>
