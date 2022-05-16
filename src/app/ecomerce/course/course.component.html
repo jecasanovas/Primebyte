@@ -7,7 +7,7 @@
   <div class="card-header text-format" style="min-height: 7.5rem">
     <h5>{{ Course.name }}</h5>
   </div>
-  <div class="card-body">
+  <div *ngIf="showBody" class="card-body">
     <h6 class="card-title">Teacher:{{ Course.teacherName }}</h6>
     <p class="card-text">Technology:{{ Course.technologyName }}</p>
   </div>

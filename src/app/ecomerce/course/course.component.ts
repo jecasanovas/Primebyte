@@ -11,6 +11,9 @@ export class CourseComponent {
   @Output()
   courseSelected$ = new EventEmitter<number>();
 
+  @Input()
+  showBody:boolean = true;
+
   constructor() {}
 
   getCourseSelected(e: number) {

@@ -13,6 +13,7 @@ import { CheckoutTab3Component } from './checkout-tab3/checkout-tab3.component';
 import { SharedModule } from '../Shared/shared.module';
 import { CoursesDetailComponent } from './courses-detail/courses-detail.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     CheckoutTab2Component,
     CheckoutTab3Component,
     CoursesDetailComponent,
+    FooterComponent,
 
   ],
   imports: [

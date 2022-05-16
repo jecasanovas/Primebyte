@@ -56,7 +56,7 @@ export class LoginComponent  {
         localStorage.removeItem('token');
         if (result.token && result.token.length > 0) {
           localStorage.setItem('token', result.token);
-          this.router.navigate(['/ecommerce/shop']);
+          this.router.navigate(['/ecommerce/home']);
         }
       },
       (error) => {
