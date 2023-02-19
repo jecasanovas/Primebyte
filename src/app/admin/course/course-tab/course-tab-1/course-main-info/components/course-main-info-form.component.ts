@@ -1,5 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectInputComponent } from 'src/app/Framework/select-input/select-input.component';
@@ -59,7 +59,7 @@ export class CourseMainInfoFormComponent implements  OnInit {
 
   constructor(
     private dataService: DataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private courseService: CourseService,
     private route: Router,
     private toast: ToastrService

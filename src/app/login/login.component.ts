@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 
 import { Toast, ToastrService } from 'ngx-toastr';
 import { Login } from '../Shared/Models/login.interface';
@@ -29,7 +29,7 @@ export class LoginComponent  {
   public constructor(
     private router: Router,
     private access: AutorizationService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toast: ToastrService,
     ) {
     localStorage.removeItem('token');

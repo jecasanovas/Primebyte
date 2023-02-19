@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Data, Router } from '@angular/router';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from '../../Services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Countries } from '../../../Shared/Models/countries.interface';
@@ -70,7 +70,7 @@ export class UserTabOneComponent implements OnInit, AfterViewInit {
     },
   ];
   constructor(
-    private formbuilder: FormBuilder,
+    private formbuilder: UntypedFormBuilder,
     private userService: UserinfoService,
     private route: Router,
     private toast: ToastrService,

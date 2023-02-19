@@ -1,5 +1,5 @@
 import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
-import { Form, FormBuilder, Validators } from '@angular/forms';
+import { Form, UntypedFormBuilder, Validators } from '@angular/forms';
 import * as saveAs from 'file-saver';
 import { ToastrService } from 'ngx-toastr';
 import { CourseDetail } from 'src/app/Shared/Models/course-detail.interface';
@@ -38,7 +38,7 @@ export class CourseIndexFormComponent  {
   });
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dataService: DataService,
     private courseService: CourseService,
     private toast: ToastrService

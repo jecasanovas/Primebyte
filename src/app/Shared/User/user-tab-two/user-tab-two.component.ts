@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from '../../Services/data.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -93,7 +93,7 @@ export class UserTabTwoComponent implements AfterViewInit, OnInit {
   ];
   constructor(
     private dataService: DataService,
-    private formbuilder: FormBuilder,
+    private formbuilder: UntypedFormBuilder,
     private userService: UserinfoService,
     private route: Router,
     private toast: ToastrService

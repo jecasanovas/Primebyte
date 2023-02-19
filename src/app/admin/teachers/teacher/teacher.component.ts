@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../../Shared/Services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { SelectInputComponent } from '../../../Framework/select-input/select-input.component';
@@ -34,7 +34,7 @@ export class TeacherComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toast: ToastrService
   ) {}
 

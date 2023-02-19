@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
 import { PaymentInfo } from '../../../Shared/Models/payment-info.interface';
@@ -33,7 +33,7 @@ export class UserTabThreeComponent implements AfterViewInit {
   showfield: boolean = true;
 
   constructor(
-    private formbuilder: FormBuilder,
+    private formbuilder: UntypedFormBuilder,
     private userService: UserinfoService,
     private toast: ToastrService
   ) {}
