@@ -1,42 +1,35 @@
 {
+
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false,
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
-  },
   "version": 1,
   "newProjectRoot": "projects",
+  
   "projects": {
-    "Cursos": {
+    "PrimeByte": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
+          
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Cursos",
+            "allowedCommonJsDependencies": ["file-saver"],
+            "outputPath": "dist/prime-byte",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -46,18 +39,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "5mb"
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "10kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "maximumError": "4kb"
                 }
               ],
               "outputHashing": "all"
@@ -73,14 +60,15 @@
           },
           "defaultConfiguration": "production"
         },
+        
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Cursos:build:production"
+              "browserTarget": "PrimeByte:build:production"
             },
             "development": {
-              "browserTarget": "Cursos:build:development"
+              "browserTarget": "PrimeByte:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,16 +76,17 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Cursos:build"
+            "browserTarget": "PrimeByte:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -107,26 +96,8 @@
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
-          }
         }
       }
-    }
-  },
-  "defaultProject": "Cursos",
-  "schematics": {
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
     }
   }
 }

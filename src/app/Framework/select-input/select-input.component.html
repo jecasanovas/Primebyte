@@ -42,7 +42,7 @@
   >
     <label
       [ngClass]="
-        controlDir.control?.errors?.required ? 'invalid-feedback2' : 'hidden'
+        controlDir.control?.errors?.['required'] ? 'invalid-feedback2' : 'hidden'
       "
       >{{ label }} is required</label
     >
