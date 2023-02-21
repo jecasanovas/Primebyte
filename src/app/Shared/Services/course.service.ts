@@ -17,7 +17,7 @@ import { Teacher } from '../Models/teacher.interface';
 })
 export class CourseService {
   paginator!: Paginaton<Course>;
-  endPoint = 'https://localhost:5001/api';
+  endPoint = 'https://primeapi.net/api';
 
   constructor(
     private http: HttpClient,

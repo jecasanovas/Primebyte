@@ -18,7 +18,7 @@ import { CourseDetail } from '../Models/course-detail.interface';
   providedIn: 'root',
 })
 export class DataService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint = 'https://primeapi.net/api';
 
   constructor(private http: HttpClient) {
     if (environment.production) {

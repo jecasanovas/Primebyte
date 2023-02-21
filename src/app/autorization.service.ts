@@ -13,7 +13,7 @@ import { Login } from './Shared/Models/login.interface';
   providedIn: 'root',
 })
 export class AutorizationService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint = 'https://primeapi.net/api';
   logged: Boolean = false;
 
   constructor(private http: HttpClient) {

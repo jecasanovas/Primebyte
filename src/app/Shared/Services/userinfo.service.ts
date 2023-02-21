@@ -12,7 +12,7 @@ import { PaymentInfo } from '../Models/payment-info.interface';
   providedIn: 'root',
 })
 export class UserinfoService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint = 'https://primeapi.net/api';
 
   constructor(
     private http: HttpClient,
