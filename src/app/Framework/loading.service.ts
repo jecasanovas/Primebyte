@@ -12,7 +12,7 @@ export class LoadingService {
   loading() {
     this.busyRequestCount++;
     this.spinnerService.show(undefined, {
-      type: 'ball-spin',
+      type: 'ball-spin-clockwise',
       size: 'medium',
       fullScreen: true,
       bdColor: 'rgba(0, 0, 0, 0.1)',

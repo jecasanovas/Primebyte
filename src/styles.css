@@ -19577,7 +19577,6 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 }
 .body-page {
   position: absolute;
-  background: #383a4f;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -19587,7 +19586,6 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 }
 
 .background-card-color {
-  background: #383a4f;
   width: 100%;
   height: 100%;
   padding: 0;
