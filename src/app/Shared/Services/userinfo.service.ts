@@ -18,7 +18,7 @@ export class UserinfoService {
     private http: HttpClient,
     private dataservice: DataService
   ) {
-    if (environment.production) {
+    if (environment) {
       this.endPoint = 'https://primeapi.net/api';
     }
   }
