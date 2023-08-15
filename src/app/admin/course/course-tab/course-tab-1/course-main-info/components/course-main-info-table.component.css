@@ -1,6 +1,6 @@
 table {
   table-layout: fixed;
-  max-height: 26rem;
+
 }
 
 tr {
@@ -15,6 +15,12 @@ td {
 }
 .table > :not(:first-child) {
   border-top: 1px solid white;
+}
+tbody {
+  display: block;
+  height: 15rem;       /* Just for the demo          */
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
 thead {
