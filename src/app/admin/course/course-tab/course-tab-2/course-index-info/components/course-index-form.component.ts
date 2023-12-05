@@ -2,9 +2,9 @@ import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, ViewChild } f
 import { Form, UntypedFormBuilder, Validators } from '@angular/forms';
 import * as saveAs from 'file-saver';
 import { ToastrService } from 'ngx-toastr';
-import { CourseDetail } from 'src/app/Shared/Models/course-detail.interface';
-import { CourseService } from 'src/app/Shared/Services/course.service';
-import { DataService } from 'src/app/Shared/Services/data.service';
+import { CourseDetail } from '../../../../../../../app/Shared/Models/course-detail.interface';
+import { CourseService } from '../../../../../../../app/Shared/Services/course.service';
+import { DataService } from '../../../../../../../app/Shared/Services/data.service';
 import { CourseIndexTableComponent } from './course-index-table.component';
 
 

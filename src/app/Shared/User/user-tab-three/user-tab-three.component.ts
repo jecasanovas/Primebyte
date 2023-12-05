@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
+import { UserinfoService } from '../../../Shared/Services/userinfo.service';
 import { PaymentInfo } from '../../../Shared/Models/payment-info.interface';
 import { UserTableThreeComponent } from '../user-table-three/user-table-three.component';
 

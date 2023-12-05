@@ -5,8 +5,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
-import { UserTabThreeComponent } from 'src/app/Shared/User/user-tab-three/user-tab-three.component';
+import { UserinfoService } from '../../Shared/Services/userinfo.service';
+import { UserTabThreeComponent } from '../../Shared/User/user-tab-three/user-tab-three.component';
 
 @Component({
   selector: 'app-checkout-tab2',

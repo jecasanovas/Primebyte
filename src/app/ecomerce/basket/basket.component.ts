@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Basket } from 'src/app/Shared/Models/basket.interface';
-import { ShopService } from 'src/app/Shared/Services/shop.service';
+import { Basket } from '../../Shared/Models/basket.interface';
+import { ShopService } from '../../Shared/Services/shop.service';
 
 
 @Component({

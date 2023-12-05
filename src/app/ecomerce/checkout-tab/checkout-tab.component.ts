@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
+import { UserinfoService } from '../../Shared/Services/userinfo.service';
 import { CheckoutTab3Component } from '../checkout-tab3/checkout-tab3.component';
 
 @Component({

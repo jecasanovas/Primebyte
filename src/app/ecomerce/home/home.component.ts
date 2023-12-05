@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from 'src/app/Shared/Models/course.interface';
-import { Paginaton } from 'src/app/Shared/Models/paginaton.interface';
-import { CourseService } from 'src/app/Shared/Services/course.service';
+import { Course } from '../../Shared/Models/course.interface';
+import { Paginaton } from '../../Shared/Models/paginaton.interface';
+import { CourseService } from '../../Shared/Services/course.service';
 
 @Component({
   selector: 'app-home',

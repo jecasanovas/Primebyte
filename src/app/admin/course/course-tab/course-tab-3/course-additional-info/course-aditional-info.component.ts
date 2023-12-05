@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { CourseService } from 'src/app/Shared/Services/course.service';
-import { Course } from 'src/app/Shared/Models/course.interface';
+import { CourseService } from '../../../../../Shared/Services/course.service';
+import { Course } from '../../../../../Shared/Models/course.interface';
 @Component({
   selector: 'app-course-additional-info',
   templateUrl: './course-additional-info.component.html',

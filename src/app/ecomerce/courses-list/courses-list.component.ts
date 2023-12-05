@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Course } from 'src/app/Shared/Models/course.interface';
-import { Paginaton } from 'src/app/Shared/Models/paginaton.interface';
+import { Course } from '../../Shared/Models/course.interface';
+import { Paginaton } from '../../Shared/Models/paginaton.interface';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { CourseService } from 'src/app/Shared/Services/course.service';
-import { Teacher } from 'src/app/Shared/Models/teacher.interface';
-import { Technology } from 'src/app/Shared/Models/tecnology.interface';
-import { TechnologyDetails } from 'src/app/Shared/Models/technology-details.interface';
+import { CourseService } from '../../Shared/Services/course.service';
+import { Teacher } from '../../../app/Shared/Models/teacher.interface';
+import { Technology } from '../../../app/Shared/Models/tecnology.interface';
+import { TechnologyDetails } from '../../../app/Shared/Models/technology-details.interface';
 
 @Component({
   selector: 'app-courses-list',

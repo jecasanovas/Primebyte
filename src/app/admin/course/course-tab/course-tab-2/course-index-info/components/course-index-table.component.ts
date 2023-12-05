@@ -22,8 +22,8 @@ import { debounceTime, fromEvent, Observable, Subject, tap } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
 import { Subscription } from 'rxjs';
-import { CourseDetail } from 'src/app/Shared/Models/course-detail.interface';
-import { CourseService } from 'src/app/Shared/Services/course.service';
+import { CourseDetail } from '../../../../../../../app/Shared/Models/course-detail.interface';
+import { CourseService } from '../../../../../../../app/Shared/Services/course.service';
 
 @Component({
   selector: 'app-course-index-table',

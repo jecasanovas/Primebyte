@@ -13,9 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 import { Countries } from '../../../Shared/Models/countries.interface';
 import { UserInfo } from '../../../Shared/Models/user-info.interface';
 import { UserTableOneComponent } from '../user-table-one/user-table-one.component';
-import { SelectInputComponent } from 'src/app/Framework/select-input/select-input.component';
-import { TextNgInputComponent } from 'src/app/Framework/text-input/text-input.component';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
+import { SelectInputComponent } from '../../../Framework/select-input/select-input.component';
+import { TextNgInputComponent } from '../../../Framework/text-input/text-input.component';
+import { UserinfoService } from '../../../../app/Shared/Services/userinfo.service';
 
 @Component({
   selector: 'app-user-tab-one',

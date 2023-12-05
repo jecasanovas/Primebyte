@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Basket } from 'src/app/Shared/Models/basket.interface';
+import { Basket } from '../../../app/Shared/Models/basket.interface';
 
 
 @Injectable({

@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
-
+import { UserinfoService } from '../../../Shared/Services/userinfo.service';
 import { UserTabThreeComponent } from '../user-tab-three/user-tab-three.component';
 import { UserTabTwoComponent } from '../user-tab-two/user-tab-two.component';
 

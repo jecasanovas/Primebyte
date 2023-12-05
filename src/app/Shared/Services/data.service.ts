@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, from, Observable, of, Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { exhaustMap, map, pluck, tap } from 'rxjs/operators';
-
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment'
 import { HttpParams } from '@angular/common/http';
 import { Paginaton } from '../Models/paginaton.interface';
 import { Teacher } from '../Models/teacher.interface';
@@ -18,13 +17,12 @@ import { CourseDetail } from '../Models/course-detail.interface';
   providedIn: 'root',
 })
 export class DataService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint = environment.endPoint
 
   constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.endPoint = 'https://primeapi.net/api';
-    }
+
   }
+
 
   httpHeader = {
     headers: new HttpHeaders({
@@ -84,7 +82,7 @@ export class DataService {
   }
 
   getCountries(): Observable<Countries[]> {
-    return this.http.get<Countries[]>(this.endPoint + '/Country');
+    return this.http.get<Countries[]>(this.endPoint + '/Country/Country');
   }
 
   saveInfoCourseDetailMassive(id: number, formdata: FormData) {
@@ -168,6 +166,7 @@ export class DataService {
   }
 
   saveTechnology(technology: Technology) {
+    debugger;
     if ((technology.id ?? 0) === 0)
       return this.http.post<Technology>(
         this.endPoint + '/technology',

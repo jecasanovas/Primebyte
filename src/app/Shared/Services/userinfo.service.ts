@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { BehaviorSubject, exhaustMap, Observable, of, tap } from 'rxjs';
 import { DataService } from './data.service';
 import { Paginaton } from '../Models/paginaton.interface';
@@ -12,15 +12,12 @@ import { PaymentInfo } from '../Models/payment-info.interface';
   providedIn: 'root',
 })
 export class UserinfoService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint = environment.endPoint;
 
   constructor(
     private http: HttpClient,
     private dataservice: DataService
   ) {
-    if (environment) {
-      this.endPoint = 'https://primeapi.net/api';
-    }
   }
 
   httpHeader = {

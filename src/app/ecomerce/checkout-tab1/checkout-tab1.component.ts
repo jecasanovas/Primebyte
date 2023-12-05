@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { exhaustMap, map } from 'rxjs';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
-import { UserTabOneComponent } from 'src/app/Shared/User/user-tab-one/user-tab-one.component';
-import { UserTabTwoComponent } from 'src/app/Shared/User/user-tab-two/user-tab-two.component';
+import { UserinfoService } from '../../../app/Shared/Services/userinfo.service';
+import { UserTabOneComponent } from '../../../app/Shared/User/user-tab-one/user-tab-one.component';
+import { UserTabTwoComponent } from '../../../app/Shared/User/user-tab-two/user-tab-two.component';
 
 
 @Component({

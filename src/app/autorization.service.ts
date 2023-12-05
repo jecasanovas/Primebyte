@@ -1,25 +1,19 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResult } from './Shared/Models/login-result.interface';
 import { Login } from './Shared/Models/login.interface';
 
 
-
-
-
 @Injectable({
   providedIn: 'root',
 })
 export class AutorizationService {
-  endPoint = 'https://localhost:5001/api';
+  endPoint =  environment.endPoint;
   logged: Boolean = false;
 
   constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.endPoint = 'https://primeapi.net/api';
-    }
   }
 
   httpHeader = {

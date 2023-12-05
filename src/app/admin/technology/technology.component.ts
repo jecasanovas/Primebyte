@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { DataService } from 'src/app/Shared/Services/data.service';
 import { TechnologyDetails } from '../../Shared/Models/technology-details.interface';
 import { Technology } from '../../Shared/Models/tecnology.interface';
+import { DataService } from '../../Shared/Services/data.service';
 
 @Component({
   selector: 'app-technology',

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DataService } from 'src/app/Shared/Services/data.service';
+import { DataService } from '../../../Shared/Services/data.service';
 import { Teacher } from '../../../Shared/Models/teacher.interface';
 
 @Component({

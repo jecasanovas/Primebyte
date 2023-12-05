@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
+import { environment } from '../../../environments/environment';
 import { BehaviorSubject, exhaustMap, map, Observable, tap } from 'rxjs';
 import { DataService } from './data.service';
 import * as saveAs from 'file-saver';
@@ -17,15 +16,13 @@ import { Teacher } from '../Models/teacher.interface';
 })
 export class CourseService {
   paginator!: Paginaton<Course>;
-  endPoint = 'https://localhost:5001/api';
+  endPoint = environment.endPoint;
 
   constructor(
     private http: HttpClient,
     private dataservice: DataService
   ) {
-    if (environment.production) {
-      this.endPoint = 'https://primeapi.net/api';
-    }
+
   }
 
   httpHeader = {

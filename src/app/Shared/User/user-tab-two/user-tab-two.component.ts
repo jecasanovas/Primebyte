@@ -15,11 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 import { UserTableOneComponent } from '../user-table-one/user-table-one.component';
 import { Addresses } from '../../../Shared/Models/addresses.interface';
 import { TypeOfAddress } from '../../../Shared/Models/typeof-address.interface';
-import { SelectInputComponent } from 'src/app/Framework/select-input/select-input.component';
-import { TextNgInputComponent } from 'src/app/Framework/text-input/text-input.component';
+import { SelectInputComponent } from '../../../Framework/select-input/select-input.component';
+import { TextNgInputComponent } from '../../../Framework/text-input/text-input.component';
 import { UserTableTwoComponent } from '../user-table-two/user-table-two.component';
 import { Countries } from '../../../Shared/Models/countries.interface';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
+import { UserinfoService } from '../../../Shared/Services/userinfo.service';
 
 @Component({
   selector: 'app-user-tab-two',

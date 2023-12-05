@@ -4,7 +4,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { DataService } from 'src/app/Shared/Services/data.service';
+import { DataService } from '../../../Shared/Services/data.service';
 
 @Component({
   selector: 'app-admin',

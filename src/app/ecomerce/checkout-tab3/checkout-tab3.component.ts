@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Basket } from 'src/app/Shared/Models/basket.interface';
-import { ShopService } from 'src/app/Shared/Services/shop.service';
-import { UserinfoService } from 'src/app/Shared/Services/userinfo.service';
-import { UserTabThreeComponent } from 'src/app/Shared/User/user-tab-three/user-tab-three.component';
-import { UserTabTwoComponent } from 'src/app/Shared/User/user-tab-two/user-tab-two.component';
+import { Basket } from '../../Shared/Models/basket.interface';
+import { ShopService } from '../../Shared/Services/shop.service';
+import { UserinfoService } from '../../Shared/Services/userinfo.service';
+import { UserTabThreeComponent } from '../../Shared/User/user-tab-three/user-tab-three.component';
+import { UserTabTwoComponent } from '../../Shared/User/user-tab-two/user-tab-two.component';
 
 @Component({
   selector: 'app-checkout-tab3',
