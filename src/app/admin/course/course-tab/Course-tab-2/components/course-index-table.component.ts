@@ -22,8 +22,8 @@ import { debounceTime, fromEvent, Observable, Subject, tap } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
 import { Subscription } from 'rxjs';
-import { CourseDetail } from '../../../../../../../app/Shared/Models/course-detail.interface';
-import { CourseService } from '../../../../../../../app/Shared/Services/course.service';
+import { CourseDetail } from '../../../../../Shared/Models/course-detail.interface';
+import { CourseService } from '../../../.././../Shared/Services/course.service';
 
 @Component({
   selector: 'app-course-index-table',
@@ -90,6 +90,7 @@ export class CourseIndexTableComponent implements AfterViewInit, OnDestroy {
   }
 
   changePage(e: any) {
+    debugger;
     this.activePage = typeof e == 'number' ? e : !e.page ? 1 : e.page;
     this.pageSize = !e.itemsPerPage ? this.pageSize : e.itemsPerPage;
 

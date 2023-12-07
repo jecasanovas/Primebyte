@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CourseService } from '../../../Shared/Services/course.service';
-import { CourseIndexComponent } from './course-tab-2/course-index-info/course-index.component';
-import { CourseAdditonalInfoComponent } from './course-tab-3/course-additional-info/course-aditional-info.component';
+import { CourseAdditonalInfoComponent } from './course-tab-3/Components/course-aditional-info.component';
+import { CourseIndexFormComponent } from './Course-tab-2/components/course-index-form.component';
 
 
 @Component({
@@ -11,14 +11,14 @@ import { CourseAdditonalInfoComponent } from './course-tab-3/course-additional-i
 })
 export class CourseTabComponent {
   constructor(public courseService: CourseService) {}
-  @ViewChild('tmplVarIndex') tmplVarIndex!:CourseIndexComponent
+  @ViewChild('tmplVarIndex') tmplVarIndex!:CourseIndexFormComponent
 
   @ViewChild('tmplVarAdditionalInfo') tmplVarAdditionalInfo!:CourseAdditonalInfoComponent;
 
   selectTab(e: number) {
-    e === 1 ? this.tmplVarIndex.changePage() : '';
-    const test = this.courseService.courseInfo.find(x=>x.id===this.courseService.IdCourse);
-    e === 2 ? this.tmplVarAdditionalInfo.description = this.courseService.courseInfo.find(x=>x.id===this.courseService.IdCourse)?.description ?? '' : '';
+   e === 1 ? this.tmplVarIndex.tmplVarCourseIndex.changePage(e) : '';
+   const test = this.courseService.courseInfo.find(x=>x.id===this.courseService.IdCourse);
+   e === 2 ? this.tmplVarAdditionalInfo.description = this.courseService.courseInfo.find(x=>x.id===this.courseService.IdCourse)?.description ?? '' : '';
   }
 }
 

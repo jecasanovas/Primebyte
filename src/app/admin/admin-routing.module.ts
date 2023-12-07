@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanactivateGuard } from '../canactivate.guard';
 import { CourseTabComponent } from './course/course-tab/course-tab.component';
-import { AdminComponent } from './teachers/teachertech-tab/admin.component';
+
 import { TechnologyComponent } from './technology/technology.component';
+import { TeacherComponent } from './teachers/teacher-tab-1/Components/teacher.component';
+import { TeacherTabComponent } from './teachers/teacher-tab.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'teachers',
-    component: AdminComponent,
+    component: TeacherTabComponent,
     canActivate: [CanactivateGuard],
   },
 

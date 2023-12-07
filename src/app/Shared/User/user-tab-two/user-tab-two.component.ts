@@ -45,7 +45,6 @@ export class UserTabTwoComponent implements AfterViewInit, OnInit {
   description!: TextNgInputComponent;
   /************* fields  ***************/
   private isloaded = false;
-  private cssfloatTeacher = false;
   countriesUser:Countries[] = [];
   /******************* Data ****************************************************/
 

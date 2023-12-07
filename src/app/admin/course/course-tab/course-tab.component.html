@@ -1,31 +1,31 @@
 <app-nav-bar></app-nav-bar>
- <div class="container">
-    <div class="row">
-        <div class="">
-          <div class="card border-2 shadow my-5">
-            <tabset #tabset>
-              <tab heading="Course">
-                <app-course-main-info></app-course-main-info>
-              </tab>
-              <tab
-                (selectTab)="selectTab(1)"
-                *ngIf="courseService.IdCourse > 0"
-                heading="Index"
-              >
-                <app-course-index #tmplVarIndex></app-course-index>
-              </tab>
+<div class="container">
+  <div class="row">
+    <div class="">
+      <div class="card border-2 shadow my-5">
+        <tabset #tabset>
+          <tab heading="Course">
+            <app-course-main-info-form></app-course-main-info-form>
+          </tab>
+          <tab
+            (selectTab)="selectTab(1)"
+            *ngIf="courseService.IdCourse > 0"
+            heading="Index"
+          >
+            <app-course-index-form #tmplVarIndex></app-course-index-form>
+          </tab>
 
-              <tab
-                (selectTab)="selectTab(2)"
-                *ngIf="courseService.IdCourse > 0"
-                heading="More info"
-              >
-                <app-course-additional-info
-                  #tmplVarAdditionalInfo
-                ></app-course-additional-info>
-              </tab>
-            </tabset>
-          </div>
+          <tab
+            (selectTab)="selectTab(2)"
+            *ngIf="courseService.IdCourse > 0"
+            heading="More info"
+          >
+            <app-course-additional-info
+              #tmplVarAdditionalInfo
+            ></app-course-additional-info>
+          </tab>
+        </tabset>
       </div>
     </div>
   </div>
+</div>

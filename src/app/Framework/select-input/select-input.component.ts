@@ -27,8 +27,6 @@ export class SelectInputComponent implements OnInit, ControlValueAccessor {
   @Output() changeValue = new EventEmitter();
   @Output() clearValue = new EventEmitter();
 
-  cssfloatlabel: boolean = false;
-
   constructor(@Self() public controlDir: NgControl) {
     this.controlDir.valueAccessor = this;
   }
@@ -43,18 +41,15 @@ export class SelectInputComponent implements OnInit, ControlValueAccessor {
     control!.setValidators(validators);
     control!.setAsyncValidators(asyncValidators);
     control!.updateValueAndValidity();
-    this.cssfloatlabel = false;
   }
 
   onChange(event: any) {
-    this.cssfloatlabel = true;
     this.changeValue.emit(event);
   }
 
   onTouched() {}
 
   writeValue(obj: any): void {
-    this.cssfloatlabel = true;
     this.input.writeValue(obj);
   }
 

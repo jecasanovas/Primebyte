@@ -40,7 +40,6 @@ export class UserTabOneComponent implements OnInit, AfterViewInit {
   @Input()
   showfield: boolean = true;
 
-  private cssfloatTeacher = false;
   countriesUser: Countries[] = [];
   /******************* Data ****************************************************/
 

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { DataService } from '../../../Shared/Services/data.service';
-import { Teacher } from '../../../Shared/Models/teacher.interface';
+import { DataService } from 'src/app/Shared/Services/data.service';
+import { Teacher } from 'src/app/Shared/Models/teacher.interface';
+
 
 @Component({
   selector: 'app-teacher-tab-two',

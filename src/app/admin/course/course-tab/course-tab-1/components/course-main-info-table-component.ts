@@ -23,9 +23,9 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
-import { Teacher } from '../../../../../../../app/Shared/Models/teacher.interface';
-import { Course } from '../../../../../../../app/Shared/Models/course.interface';
-import { CourseService } from '../../../../../../../app/Shared/Services/course.service';
+import { Teacher } from '../../../.,./../../../Shared/Models/teacher.interface';
+import { Course } from '../../../../../Shared/Models/course.interface';
+import { CourseService } from '../../../../../../app/Shared/Services/course.service';
 
 
 @Component({

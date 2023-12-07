@@ -1,17 +1,15 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { DataService } from '../../../Shared/Services/data.service';
+import { DataService } from '../../Shared/Services/data.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
+  templateUrl: './teacher-tab.component.html',
+  styleUrls: ['./teacher-tab.component.css'],
 })
-export class AdminComponent {
+export class TeacherTabComponent {
   modalRef?: BsModalRef;
   message?: string;
   @ViewChild('tabset') tabset!: TabsetComponent;
