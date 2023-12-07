@@ -19,7 +19,7 @@ export class TextNgInputComponent implements OnInit, ControlValueAccessor {
   @Input() label!: string;
   @Input() disabled: boolean = false;
 
-  constructor(@Self() public controlDir: NgControl) {
+  constructor(@Self()public controlDir: NgControl) {
     this.controlDir.valueAccessor = this;
   }
 

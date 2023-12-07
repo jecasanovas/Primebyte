@@ -1,10 +1,7 @@
 <div class="form-floating">
-  <label
-    class="select-label"
-    for="{{ label }}"
-    [ngClass]="cssfloatlabel ? 'form-select-float' : 'text-control-style2'"
-    >{{ label }}</label
-  >
+  <label class="select-label" for="{{ label }}" ngClass="form-select-float">{{
+    label
+  }}</label>
 
   <ng-select
     [readonly]="disabled"
@@ -13,7 +10,6 @@
     [items]="Items"
     (clear)="onClear($event)"
     (change)="onChange($event)"
-
     bindValue="{{ bindId }}"
     [selectOnTab]="true"
     id="{{ label }}"

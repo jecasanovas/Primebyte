@@ -3,19 +3,16 @@
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
 }
-
-.btn-google {
-  color: white !important;
-  background-color: #ea4335;
+.background-image {
+  background-image: url('../../assets/background.jpg');
+  width: 100%;
+  height: 100%;
 }
 
-.btn-facebook {
-  color: white !important;
-  background-color: #3b5998;
-}
 .invalid {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 0.875em;
   color: #dc3545;
 }
+
