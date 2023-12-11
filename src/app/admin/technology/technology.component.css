@@ -35,14 +35,15 @@ li:hover {
   text-align: center;
   color: white;
   margin: 0px;
-  background-color: lightseagreen;
+  background-color: grey
 }
 
 .items {
-  height: 12rem;
-
+  height: 10rem;
+  margin-bottom: 1rem;
   margin-left: 1rem;
   overflow: scroll;
+  overflow-x: hidden;
 }
 .trash {
   float: right;

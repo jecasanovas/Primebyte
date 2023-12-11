@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { TechnologyDetails } from '../../Shared/Models/technology-details.interface';
 import { Technology } from '../../Shared/Models/tecnology.interface';
 import { DataService } from '../../Shared/Services/data.service';
+import {
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-technology',
@@ -16,12 +20,13 @@ export class TechnologyComponent implements OnInit {
   @ViewChild('inputTechDetail', { static: false })
   inputTechDetail!: ElementRef;
 
-  technology!: Technology[];
+
   technologyDetailsAll!: TechnologyDetails[];
   technologyDetailsFiltered!: TechnologyDetails[];
 
   technologySelected: Technology = { id: 0, description: '' };
   technologyDetailSelected!: TechnologyDetails;
+  faIconTrash = faTrash as IconProp;
 
   constructor(
     private dataService: DataService,
@@ -51,8 +56,8 @@ export class TechnologyComponent implements OnInit {
     this.dataService.deleteTechnology(id).subscribe({
       complete: () => {
         this.toast.success('Deleted!');
-        const idx = this.technology.findIndex((x) => x.id === id);
-        this.technology.splice(idx, 1);
+        const idx = this.dataService.Techology.findIndex((x) => x.id === id);
+        this.dataService.Techology.splice(idx, 1);
       },
       error: () => this.toast.error("You can't delete this item"),
     });
@@ -124,7 +129,7 @@ export class TechnologyComponent implements OnInit {
     this.dataService.saveTechnology(this.technologySelected).subscribe({
       next: (result: any) => {
         this.technologySelected = <Technology>(
-          this.technology.find((x) => x.id === this.technologySelected.id)
+          this.dataService.Techology.find((x) => x.id === this.technologySelected.id)
         );
 
         if (!this.technologySelected) {
@@ -132,7 +137,7 @@ export class TechnologyComponent implements OnInit {
             id: result,
             description: this.inputtechnology.nativeElement.value,
           };
-          this.technology.push(this.technologySelected);
+          this.dataService.Techology.push(this.technologySelected);
         } else {
           this.technologySelected.description =
             this.inputtechnology.nativeElement.value;
@@ -169,7 +174,7 @@ export class TechnologyComponent implements OnInit {
           const technologyId = this.technologyDetailSelected.technologyId;
 
           this.technologySelected = <Technology>(
-            this.technology.find((x) => x.id === technologyId)
+            this.dataService.Techology.find((x) => x.id === technologyId)
           );
 
           if (!this.technologySelected) {
@@ -177,7 +182,7 @@ export class TechnologyComponent implements OnInit {
               id: result,
               description: this.inputtechnology.nativeElement.value,
             };
-            this.technology.push(this.technologySelected);
+            this.dataService.Techology.push(this.technologySelected);
           }
 
           this.technologyDetailSelected = <TechnologyDetails>(

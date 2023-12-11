@@ -10,11 +10,8 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
-
     LoginComponent,
     NavBarComponent
-
-
   ],
   imports: [
     SharedRoutingModule,

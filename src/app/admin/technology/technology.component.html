@@ -1,154 +1,149 @@
 <app-nav-bar></app-nav-bar>
-<div class="body-page">
-  <div class="container">
-    <div class="row">
-      <div class="card-body background-card-color">
-        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
-          <div class="card border-2 shadow">
-            <tabset #tabset>
-              <tab heading="Technology">
-                <label class="mx-3 label-info"
-                  >Click Add button to add new Detail and click save</label
-                >
-                <div class="form-control-style row-controls">
-                  <div class="w-10">
-                    <button
-                      (click)="addTechnology()"
-                      class="btn btn-primary mx-2 btn-add-save"
-                    >
-                      Add
-                    </button>
-                  </div>
-
-                  <div class="form-floating mb-3 floatingInput">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="floatingInput"
-                      #inputtechnology
-                      [value]="
-                        !technologySelected
-                          ? ''
-                          : technologySelected.description
-                      "
-                    />
-                    <label for="floatingInput">Technology Name</label>
-                  </div>
-                  <div>
-                    <button
-                      class="btn btn-success mx-2 btn-add-save"
-                      (click)="saveTechnology()"
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
-                <div class="mx-3 label-info">
-                  Click in one row for edit and click save
-                </div>
-                <div class="mx-3 header">
-                  <label>Technology</label>
+<div class="container mt-3">
+  <div class="row">
+    <div class="card-body background-card-color">
+      <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+        <div class="card border-2 shadow">
+          <tabset #tabset>
+            <tab heading="Technology">
+              <label class="mx-3 label-info"
+                >Click Add button to add new Detail and click save</label
+              >
+              <div class="form-control-style row-controls">
+                <div class="w-10">
+                  <button
+                    (click)="addTechnology()"
+                    class="btn btn-primary mx-2 btn-add-save"
+                  >
+                    Add
+                  </button>
                 </div>
 
-                <div class="mx-3 items">
-                  <ul class="list-group">
-                    <li
-                      *ngFor="let technology of obsTechnology$ | async"
-                      [ngClass]="
-                        technologySelected.description ===
-                        technology.description
-                          ? 'selected'
-                          : ''
-                      "
-                      (click)="
-                        changeTechnology(technology.id, technology.description)
-                      "
-                      class="list-group-item"
-                    >
-                      {{ technology.description }}
-                      <span>
-                        <i
-                          (click)="deleteItem(technology.id)"
-                          class="fa fa-trash trash"
-                        ></i>
-                      </span>
-                    </li>
-                  </ul>
+                <div class="form-floating mb-3 floatingInput">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    #inputtechnology
+                    [value]="
+                      !technologySelected ? '' : technologySelected.description
+                    "
+                  />
+                  <label for="floatingInput">Technology Name</label>
                 </div>
-                <label class="mx-3 label-info"
-                  >Click Add button to add new Detail and click save</label
-                >
-                <div class="row-controls">
-                  <div class="w-10">
-                    <button
-                      (click)="addTechnologyDetail()"
-                      class="btn btn-primary mx-2 btn-add-save"
-                    >
-                      Add
-                    </button>
-                  </div>
-
-                  <div class="form-floating mb-3 floatingInput">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="floatingInput2"
-                      #inputTechDetail
-                      [value]="
-                        !technologyDetailSelected
-                          ? ''
-                          : technologyDetailSelected.description
-                      "
-                    />
-                    <label for="floatingInput2 label-info"
-                      >Technology Detail Name</label
-                    >
-                  </div>
-                  <div>
-                    <button
-                      class="btn btn-success mx-2 btn-add-save"
-                      (click)="saveTechnologyDetail()"
-                    >
-                      Save
-                    </button>
-                  </div>
+                <div>
+                  <button
+                    class="btn btn-success mx-2 btn-add-save"
+                    (click)="saveTechnology()"
+                  >
+                    Save
+                  </button>
                 </div>
-                <label class="mx-3 label-info"
-                  >Click in one row for edit and click save</label
-                >
+              </div>
+              <div class="mx-3 label-info">
+                Click in one row for edit and click save
+              </div>
+              <div class="mx-3 header">
+                <label>Technology</label>
+              </div>
 
-                <div class="mx-3 header">
-                  <label>Detail</label>
+              <div class="mx-3 items">
+                <ul class="list-group">
+                  <li
+                    *ngFor="let technology of obsTechnology$ | async"
+                    [ngClass]="
+                      technologySelected.description === technology.description
+                        ? 'selected'
+                        : ''
+                    "
+                    (click)="
+                      changeTechnology(technology.id, technology.description)
+                    "
+                    class="list-group-item"
+                  >
+                    {{ technology.description }}
+                    <span>
+                      <i
+                        (click)="deleteItem(technology.id)"
+                        class="fa fa-trash trash"
+                      ></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <label class="mx-3 label-info"
+                >Click Add button to add new Detail and click save</label
+              >
+              <div class="row-controls">
+                <div class="w-10">
+                  <button
+                    (click)="addTechnologyDetail()"
+                    class="btn btn-primary mx-2 btn-add-save"
+                  >
+                    Add
+                  </button>
                 </div>
 
-                <div class="mx-3 items">
-                  <ul class="list-group">
-                    <li
-                      *ngFor="let technologyDetail of technologyDetailsFiltered"
-                      (click)="
-                        changeTechnologyDetail(
-                          technologyDetail.id,
-                          technologyDetail.description
-                        )
-                      "
-                      class="list-group-item"
-                    >
+                <div class="form-floating mb-3 floatingInput">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput2"
+                    #inputTechDetail
+                    [value]="
+                      !technologyDetailSelected
+                        ? ''
+                        : technologyDetailSelected.description
+                    "
+                  />
+                  <label for="floatingInput2 label-info"
+                    >Technology Detail Name</label
+                  >
+                </div>
+                <div>
+                  <button
+                    class="btn btn-success mx-2 btn-add-save"
+                    (click)="saveTechnologyDetail()"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+              <label class="mx-3 label-info"
+                >Click in one row for edit and click save</label
+              >
+
+              <div class="mx-3 header">
+                <label>Detail</label>
+              </div>
+
+              <div class="mx-3 items">
+                <ul class="list-group" style="display: flex">
+                  <li
+                    *ngFor="let technologyDetail of technologyDetailsFiltered"
+                    (click)="
+                      changeTechnologyDetail(
+                        technologyDetail.id,
+                        technologyDetail.description
+                      )
+                    "
+                    class="list-group-item"
+                  >
+                    <div style="display: flex">
                       {{ technologyDetail.description }}
-                      <span>
-                        <i
-                          (click)="deleteItemDetail(technologyDetail.id)"
-                          class="fa fa-trash trash"
-                        ></i
-                      ></span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="d-flex justify-content-end">
-                  <button class="btn btn-info">Return</button>
-                </div>
-              </tab>
-            </tabset>
-          </div>
+
+                      <fa-icon
+                        (click)="deleteItemDetail(technologyDetail.id)"
+                        [icon]="faIconTrash"
+                        [size]="'lg'"
+                        style="margin-left: auto"
+                      ></fa-icon>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </tab>
+          </tabset>
         </div>
       </div>
     </div>

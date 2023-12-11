@@ -31,7 +31,7 @@ export class DataService {
   };
 
   Teacher!: Teacher;
-
+  Techology!:Technology[];
    getTeachers(): Observable<Paginaton<Teacher>> {
     return this.http.get<Paginaton<Teacher>>(this.endPoint + '/Teacher').pipe(
       map((result: Paginaton<Teacher>) => {
@@ -78,7 +78,12 @@ export class DataService {
   }
 
   getTechnology(): Observable<Technology[]> {
-    return this.http.get<Technology[]>(this.endPoint + '/Technology');
+    return this.http.get<Technology[]>(this.endPoint + '/Technology')
+    .pipe(
+      tap((data) => {
+
+        this.Techology = [...data];
+      }));
   }
 
   getCountries(): Observable<Countries[]> {
