@@ -13,17 +13,6 @@
     </div>
   </div>
 </div>
-<app-user-tab-two
-  #tab2
-  [showTable]="showTable"
-  [showfield]="false"
-></app-user-tab-two>
-
-<app-user-tab-three
-  #tab3
-  [showTable]="showTable"
-  [showfield]="false"
-></app-user-tab-three>
 <div class="container">
   <div class="row">
     <article *ngFor="let basket of obs$ | async; let i = index">

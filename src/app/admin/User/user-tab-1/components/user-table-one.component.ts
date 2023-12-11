@@ -28,7 +28,7 @@ import {
 } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
-import { UserinfoService } from '../../../Shared/Services/userinfo.service';
+import { UserinfoService } from '../../../../Shared/Services/userinfo.service';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { UserinfoService } from '../../../Shared/Services/userinfo.service';
-import { UserTabThreeComponent } from '../user-tab-three/user-tab-three.component';
-import { UserTabTwoComponent } from '../user-tab-two/user-tab-two.component';
+import { UserinfoService } from '../../Shared/Services/userinfo.service';
+import { UserTabThreeComponent } from './user-tab-3/components/user-tab-three.component';
+import { UserTabTwoComponent } from './user-tab-2/components/user-tab-two.component';
 
 @Component({
   selector: 'app-user-tab',

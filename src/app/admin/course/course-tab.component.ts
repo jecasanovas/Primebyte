@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CourseService } from '../../../Shared/Services/course.service';
-import { CourseAdditonalInfoComponent } from './course-tab-3/Components/course-aditional-info.component';
+import { CourseService } from '../../Shared/Services/course.service';
+import { CourseAdditonalInfoComponent } from './course-tab-3/components/course-aditional-info.component';
 import { CourseIndexFormComponent } from './Course-tab-2/components/course-index-form.component';
 
 

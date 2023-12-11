@@ -8,14 +8,14 @@ import {
 } from '@angular/core';
 import { Data, Router } from '@angular/router';
 import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from '../../Services/data.service';
+import { DataService } from 'src/app/Shared/Services/data.service';
 import { ToastrService } from 'ngx-toastr';
-import { Countries } from '../../../Shared/Models/countries.interface';
-import { UserInfo } from '../../../Shared/Models/user-info.interface';
-import { UserTableOneComponent } from '../user-table-one/user-table-one.component';
-import { SelectInputComponent } from '../../../Framework/select-input/select-input.component';
-import { TextNgInputComponent } from '../../../Framework/text-input/text-input.component';
-import { UserinfoService } from '../../../../app/Shared/Services/userinfo.service';
+import { Countries } from '../../../../Shared/Models/countries.interface';
+import { UserInfo } from '../../../../Shared/Models/user-info.interface';
+import { UserTableOneComponent } from './user-table-one.component';
+import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component';
+import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
+import { UserinfoService } from '../../../../Shared/Services/userinfo.service';
 
 @Component({
   selector: 'app-user-tab-one',

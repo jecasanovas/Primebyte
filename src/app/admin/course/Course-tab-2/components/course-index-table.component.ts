@@ -5,6 +5,7 @@ import {
   EventEmitter,
   ViewChild,
   AfterViewInit,
+  Input,
   OnDestroy,
 } from '@angular/core';
 import {
@@ -14,40 +15,45 @@ import {
   faArrowRight,
   faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
+
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { debounceTime, fromEvent, Observable, Subscription } from 'rxjs';
+import { debounceTime, fromEvent, Observable, Subject, tap } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
-import { UserinfoService } from '../../..//Shared/Services/userinfo.service';
-
+import { Subscription } from 'rxjs';
+import { CourseDetail } from '../../../../Shared/Models/course-detail.interface';
+import { CourseService } from '../../../../Shared/Services/course.service';
 
 @Component({
-  selector: 'app-user-table-three',
-  templateUrl: './user-table-three.component.html',
-  styleUrls: ['./user-table-three.component.css'],
+  selector: 'app-course-index-table',
+  templateUrl: './course-index-table.component.html',
+  styleUrls: ['./course-index-table.component.css'],
 })
-export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
-  public paymentInfoObs$ = this.userService.obsPaymentInfo$;
+export class CourseIndexTableComponent implements AfterViewInit, OnDestroy {
+  public courseDataIndex$ = this.courseService.obsCourseIndexData$;
 
-  @ViewChild('namecard', { static: false }) namecard!: ElementRef;
-  @ViewChild('cardholder', { static: false }) cardholder!: ElementRef;
-
-  @ViewChild('table', { static: false })
-  public paginator!: PaginationComponent;
-
-  @Output()
-  editPayment$ = new EventEmitter<number>();
+  @ViewChild('lesson', { static: false }) lesson!: ElementRef;
+  @ViewChild('description', { static: false }) description!: ElementRef;
+  @ViewChild('page', { static: false })
+  paginator!: PaginationComponent;
 
   @Output()
-  deletePayment$ = new EventEmitter<number>();
+  deleteCourseIndex$ = new EventEmitter<number>();
+  @Output()
+  editCourseIndex$ = new EventEmitter<number>();
 
-  idSelected = 0;
+  @Input()
+  IdCourse = 0;
+
+
+  totalIdxRows = 0;
   activePage = 1;
-  pageSize = 3;
+  pageSize = 20;
+  idteacherfilter = 0;
+  courseInfoIndex: CourseDetail[] = [];
   suscription: Subscription[] = [];
-
-  //Order table
+  lessonId = 0;
   orderColumns = new Array<string>(2);
   faIconorder0 = faArrowDownAZ as IconProp;
   faIconorder1 = faArrowDownAZ as IconProp;
@@ -55,21 +61,17 @@ export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
   faArrowRight = faArrowRight as IconProp;
   faArrowLeft = faArrowLeft as IconProp;
   obsserverDebounce: Observable<any>[] = [];
-
-  constructor(public userService: UserinfoService) {}
-
+  constructor(public courseService: CourseService) {}
   ngOnDestroy(): void {
-    this.suscription.forEach((x) => {
-      x.unsubscribe;
-    });
+    this.suscription.forEach((x) => x.unsubscribe);
   }
 
   ngAfterViewInit(): void {
-    const obs1$ = fromEvent(this.namecard.nativeElement, 'keyup').pipe(
+    const obs1$ = fromEvent(this.lesson.nativeElement, 'keyup').pipe(
       debounceTime(750)
     );
 
-    const obs2$ = fromEvent(this.cardholder.nativeElement, 'keyup').pipe(
+    const obs2$ = fromEvent(this.description.nativeElement, 'keyup').pipe(
       debounceTime(750)
     );
 
@@ -88,15 +90,18 @@ export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
   }
 
   changePage(e: any) {
+    debugger;
     this.activePage = typeof e == 'number' ? e : !e.page ? 1 : e.page;
     this.pageSize = !e.itemsPerPage ? this.pageSize : e.itemsPerPage;
 
-    this.paymentInfoObs$ = this.userService.getPaymentInfo(
-      this.userService.idUser,
+    if (!this.courseService.IdCourse) return;
+
+    this.courseDataIndex$ = this.courseService.getCourseDetail(
+      this.courseService.IdCourse,
       this.activePage,
       this.pageSize,
-      '',
-      '',
+      this.lesson.nativeElement.value,
+      this.description.nativeElement.value,
       this.orderColumns
     );
   }
@@ -104,7 +109,6 @@ export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
   changeOrder(order: string) {
     const ordernum = parseInt(order);
     if (ordernum === 0) {
-      this.orderColumns[1] = '';
       this.faIconorder1 = faArrowDownAZ as IconProp;
 
       if (this.faIconorder0 === faArrowDownAZ) {
@@ -116,7 +120,6 @@ export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
       }
     }
     if (ordernum === 1) {
-      this.orderColumns[2] = '';
       this.faIconorder0 = faArrowDownAZ as IconProp;
 
       if (this.faIconorder1 === faArrowDownAZ) {
@@ -134,17 +137,14 @@ export class UserTableThreeComponent implements OnDestroy, AfterViewInit {
     this.paginator.selectPage(page);
   }
 
-  editPayment(e: number) {
-    this.idSelected = e;
-    this.editPayment$.emit(e);
+  deleteCourse(CouseIndex: number) {
+    this.deleteCourseIndex$.emit(CouseIndex);
   }
-
-  deletePayment(e: number) {
-    this.idSelected = e;
-    this.deletePayment$.emit(e);
+  editCourseIndex(e: number) {
+    this.lessonId = e;
+    this.editCourseIndex$.emit(e);
   }
   refreshInfo(): void {
-    this.idSelected = 0;
     if (this.activePage !== 1) {
       this.activePage = 1;
       this.paginator.selectPage(this.activePage);

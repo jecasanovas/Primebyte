@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserinfoService } from '../../Shared/Services/userinfo.service';
 import { CheckoutTab3Component } from '../checkout-tab3/checkout-tab3.component';
 
 @Component({
@@ -10,10 +9,6 @@ import { CheckoutTab3Component } from '../checkout-tab3/checkout-tab3.component'
 export class CheckoutTabComponent {
   @ViewChild('tab3', { static: true }) checkout!: CheckoutTab3Component;
 
-  constructor(private userInfo: UserinfoService) {}
 
-  selectTab(e: number): void {
-    this.checkout.address.editAddress(this.userInfo.idAddress);
-    this.checkout.payments.editPayment(this.userInfo.idpayment);
-  }
+
 }

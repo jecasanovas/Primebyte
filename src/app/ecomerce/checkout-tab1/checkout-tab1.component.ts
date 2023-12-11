@@ -1,9 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { exhaustMap, map } from 'rxjs';
-import { UserinfoService } from '../../../app/Shared/Services/userinfo.service';
-import { UserTabOneComponent } from '../../../app/Shared/User/user-tab-one/user-tab-one.component';
-import { UserTabTwoComponent } from '../../../app/Shared/User/user-tab-two/user-tab-two.component';
+
 
 
 @Component({
@@ -11,27 +9,11 @@ import { UserTabTwoComponent } from '../../../app/Shared/User/user-tab-two/user-
   templateUrl: './checkout-tab1.component.html',
   styleUrls: ['./checkout-tab1.component.css'],
 })
-export class CheckoutTab1Component implements AfterViewInit {
+export class CheckoutTab1Component  {
   idUser = 0;
   constructor(
-    private userService: UserinfoService,
     private route: ActivatedRoute
   ) {}
-  @ViewChild('tab1', { static: false }) tabusers!: UserTabOneComponent;
-  @ViewChild('tab2', { static: false }) tabaddress!: UserTabTwoComponent;
-  ngAfterViewInit(): void {
-    this.route.queryParamMap
-      .pipe(
-        map((x) => x.get('id')),
-        exhaustMap((res) =>
-          this.userService.getUsers(1, 1, '', '', [], +(res ?? '0'))
-        )
-      )
-      .subscribe((result) => {
-        this.idUser = result.data[0].id;
-        this.tabusers.editUser(this.idUser);
-        this.userService.idUser = this.idUser;
-        this.tabaddress.table.changePage(1);
-      });
-  }
+
+
 }

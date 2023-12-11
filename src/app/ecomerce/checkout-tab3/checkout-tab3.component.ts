@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 import { Basket } from '../../Shared/Models/basket.interface';
 import { ShopService } from '../../Shared/Services/shop.service';
 import { UserinfoService } from '../../Shared/Services/userinfo.service';
-import { UserTabThreeComponent } from '../../Shared/User/user-tab-three/user-tab-three.component';
-import { UserTabTwoComponent } from '../../Shared/User/user-tab-two/user-tab-two.component';
+
 
 @Component({
   selector: 'app-checkout-tab3',
@@ -16,8 +15,7 @@ export class CheckoutTab3Component implements OnInit {
     private shopService: ShopService,
     private userService: UserinfoService
   ) {}
-  @ViewChild('tab2', { static: true }) public address!: UserTabTwoComponent;
-  @ViewChild('tab3', { static: true }) public payments!: UserTabThreeComponent;
+
 
   public obs$!: Observable<Basket[]>;
   public totalCourse: number = 0;

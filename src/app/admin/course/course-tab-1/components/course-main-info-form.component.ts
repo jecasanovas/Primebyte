@@ -2,14 +2,14 @@ import { AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input,
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { SelectInputComponent } from '../../../../../Framework/select-input/select-input.component'
-import { TextNgInputComponent } from '../../../../../Framework/text-input/text-input.component';
-import { Course } from '../../../../../../app/Shared/Models/course.interface';
-import { Teacher } from '../../../../../../app/Shared/Models/teacher.interface';
-import { TechnologyDetails } from '../../../../../../app/Shared/Models/technology-details.interface';
-import { Technology } from '../../../../../../app/Shared/Models/tecnology.interface';
-import { CourseService } from '../../../../../Shared/Services/course.service';
-import { DataService } from '../../../../../../app/Shared/Services/data.service';
+import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component'
+import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
+import { Course } from '../../../../../app/Shared/Models/course.interface';
+import { Teacher } from '../../../../../app/Shared/Models/teacher.interface';
+import { TechnologyDetails } from '../../../../../app/Shared/Models/technology-details.interface';
+import { Technology } from '../../../../../app/Shared/Models/tecnology.interface';
+import { CourseService } from '../../../../Shared/Services/course.service';
+import { DataService } from '../../../../../app/Shared/Services/data.service';
 
 @Component({
   selector: 'app-course-main-info-form',

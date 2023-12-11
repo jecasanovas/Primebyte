@@ -9,17 +9,17 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from '../../Services/data.service';
+import { DataService } from 'src/app/Shared/Services/data.service';
 import { ToastrService } from 'ngx-toastr';
 
-import { UserTableOneComponent } from '../user-table-one/user-table-one.component';
-import { Addresses } from '../../../Shared/Models/addresses.interface';
-import { TypeOfAddress } from '../../../Shared/Models/typeof-address.interface';
-import { SelectInputComponent } from '../../../Framework/select-input/select-input.component';
-import { TextNgInputComponent } from '../../../Framework/text-input/text-input.component';
-import { UserTableTwoComponent } from '../user-table-two/user-table-two.component';
-import { Countries } from '../../../Shared/Models/countries.interface';
-import { UserinfoService } from '../../../Shared/Services/userinfo.service';
+import { UserTableOneComponent } from '../../user-tab-1/components/user-table-one.component';
+import { Addresses } from '../../../../Shared/Models/addresses.interface';
+import { TypeOfAddress } from '../../../../Shared/Models/typeof-address.interface';
+import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component';
+import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
+import { UserTableTwoComponent } from './user-table-two.component';
+import { Countries } from '../../../../Shared/Models/countries.interface';
+import { UserinfoService } from '../../../../Shared/Services/userinfo.service';
 
 @Component({
   selector: 'app-user-tab-two',
