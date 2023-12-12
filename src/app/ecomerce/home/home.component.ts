@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from '../../Shared/Models/course.interface';
-import { Paginaton } from '../../Shared/Models/paginaton.interface';
+import { Course } from '../../Shared/Models/course.model';
+import { Paginaton } from '../../Shared/Models/paginaton.model';
 import { CourseService } from '../../Shared/Services/course.service';
 
 @Component({

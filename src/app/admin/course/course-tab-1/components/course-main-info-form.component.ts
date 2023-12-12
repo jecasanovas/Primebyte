@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component'
 import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
-import { Course } from '../../../../../app/Shared/Models/course.interface';
-import { Teacher } from '../../../../../app/Shared/Models/teacher.interface';
-import { TechnologyDetails } from '../../../../../app/Shared/Models/technology-details.interface';
-import { Technology } from '../../../../../app/Shared/Models/tecnology.interface';
+import { Course } from '../../../../Shared/Models/course.model';
+import { Teacher } from '../../../../Shared/Models/teacher.model';
+import { TechnologyDetails } from '../../../../Shared/Models/technology-details.model';
+import { Technology } from '../../../../Shared/Models/tecnology.model';
 import { CourseService } from '../../../../Shared/Services/course.service';
 import { DataService } from '../../../../../app/Shared/Services/data.service';
 

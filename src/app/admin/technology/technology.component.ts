@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { TechnologyDetails } from '../../Shared/Models/technology-details.interface';
-import { Technology } from '../../Shared/Models/tecnology.interface';
+import { TechnologyDetails } from '../../Shared/Models/technology-details.model';
+import { Technology } from '../../Shared/Models/tecnology.model';
 import { DataService } from '../../Shared/Services/data.service';
 import {
   faTrash

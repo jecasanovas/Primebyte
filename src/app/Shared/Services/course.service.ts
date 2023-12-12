@@ -4,12 +4,12 @@ import { environment } from '../../../environments/environment';
 import { BehaviorSubject, exhaustMap, map, Observable, tap } from 'rxjs';
 import { DataService } from './data.service';
 import * as saveAs from 'file-saver';
-import { Paginaton } from '../Models/paginaton.interface';
-import { Course } from '../Models/course.interface';
-import { CourseDetail } from '../Models/course-detail.interface';
-import { Technology } from '../Models/tecnology.interface';
-import { TechnologyDetails } from '../Models/technology-details.interface';
-import { Teacher } from '../Models/teacher.interface';
+import { Paginaton } from '../Models/paginaton.model';
+import { Course } from '../Models/course.model';
+import { CourseDetail } from '../Models/course-detail.model';
+import { Technology } from '../Models/tecnology.model';
+import { TechnologyDetails } from '../Models/technology-details.model';
+import { Teacher } from '../Models/teacher.model';
 
 @Injectable({
   providedIn: 'root',

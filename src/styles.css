@@ -19576,11 +19576,7 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 .flatpickr-time input.flatpickr-hour {
   font-weight: 700;
 }
-.body-background {
-  background-image: url('assets/background.jpg');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
 .body-page {
   padding: 0;
   margin: 0;

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginResult } from './Shared/Models/login-result.interface';
-import { Login } from './Shared/Models/login.interface';
+import { LoginResult } from './Shared/Models/login-result.model';
+import { Login } from './Shared/Models/login.model';
 
 
 @Injectable({

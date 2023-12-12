@@ -1,21 +1,19 @@
 <app-nav-bar></app-nav-bar>
-<div class="body-page">
-  <div class="container container-pad-left-right-0">
-    <div class="row">
-      <div class="card-body background-card-color">
-        <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
-          <div class="card border-2 shadow my-5">
-            <tabset #tabset>
-              <tab heading="Teacher">
-                <app-teacher></app-teacher>
-              </tab>
-              <tab heading="More info" (selectTab)="changeTab(1)">
-                <app-teacher-tab-two
-                  [description]="description"
-                ></app-teacher-tab-two>
-              </tab>
-            </tabset>
-          </div>
+<div class="container container-pad-left-right-0">
+  <div class="row">
+    <div class="card-body background-card-color">
+      <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+        <div class="card border-2 shadow mt-3">
+          <tabset #tabset>
+            <tab heading="Teacher">
+              <app-teacher></app-teacher>
+            </tab>
+            <tab heading="More info" (selectTab)="changeTab(1)">
+              <app-teacher-tab-two
+                [description]="description"
+              ></app-teacher-tab-two>
+            </tab>
+          </tabset>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Basket } from '../../Shared/Models/basket.interface';
+import { Basket } from '../../Shared/Models/basket.model';
 import { ShopService } from '../../Shared/Services/shop.service';
 
 

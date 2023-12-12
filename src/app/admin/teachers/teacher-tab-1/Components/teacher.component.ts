@@ -5,9 +5,9 @@ import { ToastrService } from 'ngx-toastr';
 import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component';
 import { Observable } from 'rxjs';
 import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
-import { Countries } from '../../../../Shared/Models/countries.interface';
-import { Teacher } from '../../../../Shared/Models/teacher.interface';
-import { Paginaton } from '../../../../Shared/Models/paginaton.interface';
+import { Countries } from '../../../../Shared/Models/countries.model';
+import { Teacher } from '../../../../Shared/Models/teacher.model';
+import { Paginaton } from '../../../../Shared/Models/paginaton.model';
 
 @Component({
   selector: 'app-teacher',

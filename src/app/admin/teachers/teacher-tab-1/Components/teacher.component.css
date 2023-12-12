@@ -26,9 +26,9 @@
 }
 
 img {
-  border: 1px dotted black;
-  height: 15rem;
-  width: 15rem;
+
+  width: 10rem;
+  object-fit: contain;
 }
 
 .photo {
@@ -56,6 +56,13 @@ td {
 .table > :not(:first-child) {
   border-top: 1px solid white;
 }
+tbody {
+  display: block;
+  max-height: 13rem;
+  overflow-y: auto;
+  overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
 
 thead {
   background-color: lightseagreen;

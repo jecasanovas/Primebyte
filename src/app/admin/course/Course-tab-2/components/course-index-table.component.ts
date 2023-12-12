@@ -22,7 +22,7 @@ import { debounceTime, fromEvent, Observable, Subject, tap } from 'rxjs';
 
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
 import { Subscription } from 'rxjs';
-import { CourseDetail } from '../../../../Shared/Models/course-detail.interface';
+import { CourseDetail } from '../../../../Shared/Models/course-detail.model';
 import { CourseService } from '../../../../Shared/Services/course.service';
 
 @Component({

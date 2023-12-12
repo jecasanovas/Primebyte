@@ -3,10 +3,10 @@ import { Injectable, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject, exhaustMap, Observable, of, tap } from 'rxjs';
 import { DataService } from './data.service';
-import { Paginaton } from '../Models/paginaton.interface';
-import { UserInfo } from '../Models/user-info.interface';
-import { Addresses } from '../Models/addresses.interface';
-import { PaymentInfo } from '../Models/payment-info.interface';
+import { Paginaton } from '../Models/paginaton.model';
+import { UserInfo } from '../Models/user-info.model';
+import { Addresses } from '../Models/addresses.model';
+import { PaymentInfo } from '../Models/payment-info.model';
 
 @Injectable({
   providedIn: 'root',

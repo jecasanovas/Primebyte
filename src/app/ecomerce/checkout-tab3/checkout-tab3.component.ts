@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Basket } from '../../Shared/Models/basket.interface';
+import { Basket } from '../../Shared/Models/basket.model';
 import { ShopService } from '../../Shared/Services/shop.service';
 import { UserinfoService } from '../../Shared/Services/userinfo.service';
 

@@ -4,13 +4,13 @@ import { Observable, of } from 'rxjs';
 import { exhaustMap, map, pluck, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment'
 import { HttpParams } from '@angular/common/http';
-import { Paginaton } from '../Models/paginaton.interface';
-import { Teacher } from '../Models/teacher.interface';
-import { Technology } from '../Models/tecnology.interface';
-import { Countries } from '../Models/countries.interface';
-import { TechnologyDetails } from '../Models/technology-details.interface';
-import { UserInfo } from '../Models/user-info.interface';
-import { CourseDetail } from '../Models/course-detail.interface';
+import { Paginaton } from '../Models/paginaton.model';
+import { Teacher } from '../Models/teacher.model';
+import { Technology } from '../Models/tecnology.model';
+import { Countries } from '../Models/countries.model';
+import { TechnologyDetails } from '../Models/technology-details.model';
+import { UserInfo } from '../Models/user-info.model';
+import { CourseDetail } from '../Models/course-detail.model';
 
 
 @Injectable({

@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 import { UntypedFormBuilder } from '@angular/forms';
 
 import { Toast, ToastrService } from 'ngx-toastr';
-import { Login } from '../Shared/Models/login.interface';
-import { LoginResult } from '../Shared/Models/login-result.interface';
+import { Login } from '../Shared/Models/login.model';
+import { LoginResult } from '../Shared/Models/login-result.model';
 import { emailValidator } from '../Shared/validators/customemailvalidator';
 import { AutorizationService } from '../autorization.service';
 import { NavBarComponent } from '../Shared/nav-bar/nav-bar.component';

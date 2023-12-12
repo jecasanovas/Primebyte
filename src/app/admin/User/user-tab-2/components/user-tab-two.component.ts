@@ -12,13 +12,12 @@ import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/fo
 import { DataService } from 'src/app/Shared/Services/data.service';
 import { ToastrService } from 'ngx-toastr';
 
-import { UserTableOneComponent } from '../../user-tab-1/components/user-table-one.component';
-import { Addresses } from '../../../../Shared/Models/addresses.interface';
-import { TypeOfAddress } from '../../../../Shared/Models/typeof-address.interface';
+import { Addresses } from '../../../../Shared/Models/addresses.model';
+import { TypeOfAddress } from '../../../../Shared/Models/typeof-address.model';
 import { SelectInputComponent } from '../../../../Framework/select-input/select-input.component';
 import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
 import { UserTableTwoComponent } from './user-table-two.component';
-import { Countries } from '../../../../Shared/Models/countries.interface';
+import { Countries } from '../../../../Shared/Models/countries.model';
 import { UserinfoService } from '../../../../Shared/Services/userinfo.service';
 
 @Component({

@@ -15,10 +15,10 @@ import {
   observable,
   tap,
 } from 'rxjs';
-import { Course } from '../../Shared/Models/course.interface';
+import { Course } from '../../Shared/Models/course.model';
 import { CourseService } from '../../../app/Shared/Services/course.service';
-import { CourseDetail } from '../../../app/Shared/Models/course-detail.interface';
-import { Basket } from '../../../app/Shared/Models/basket.interface';
+import { CourseDetail } from '../../Shared/Models/course-detail.model';
+import { Basket } from '../../Shared/Models/basket.model';
 import { ShopService } from '../../../app/Shared/Services/shop.service';
 
 
