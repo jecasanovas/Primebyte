@@ -1,99 +1,94 @@
 <div class="table-responsive-lg">
-  <div class="row">
-    <div class="col-12">
-      <table class="table border border-3 shadow-lg table-sm table-hover">
-        <thead>
-          <tr class="d-flex">
-            <th class="col-2">
-              <div class="row g-0 align-items-center">
-                <div class="col-5">
-                  <label for="lessonidx">Lesson</label>
-                  <input
-                    #lesson
-                    id="lessonidx"
-                    class="form-control filter"
-                    type="text"
-                  />
-                </div>
-                <div class="col-1" style="align-self: flex-end">
-                  <fa-icon
-                    style="cursor: pointer"
-                    (click)="changeOrder('0')"
-                    [icon]="faIconorder0"
-                    [size]="'2x'"
-                  ></fa-icon>
-                </div>
-              </div>
-            </th>
-            <th class="col-9">
-              <label>Index</label>
-              <div class="row g-0">
-                <div class="col-11">
-                  <input type="text" #description class="form-control filter" />
-                </div>
-                <div class="col-1">
-                  <fa-icon
-                    style="cursor: pointer"
-                    (click)="changeOrder('1')"
-                    [icon]="faIconorder1"
-                    [size]="'2x'"
-                  ></fa-icon>
-                </div>
-              </div>
-            </th>
-
-            <th class="col-1"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let coursedet of (courseDataIndex$ | async)?.data"
-            class="d-flex"
-            (click)="editCourseIndex(coursedet.lessonId)"
-            [ngClass]="lessonId === coursedet.lessonId ? 'selected' : ''"
-          >
-            <td class="col-2" style="text-align: center">
-              {{ coursedet.lessonId }}
-            </td>
-            <td class="col-9">{{ coursedet.description }}</td>
-            <td class="col-1">
+  <table class="table border border-3 shadow-lg table-sm table-hover">
+    <thead>
+      <tr class="d-flex">
+        <th class="col-2">
+          <div class="row g-0 align-items-center">
+            <div class="col-5">
+              <label for="lessonidx">Lesson</label>
+              <input
+                #lesson
+                id="lessonidx"
+                class="form-control filter"
+                type="text"
+              />
+            </div>
+            <div class="col-1" style="align-self: flex-end">
+              <fa-icon
+                style="cursor: pointer"
+                (click)="changeOrder('0')"
+                [icon]="faIconorder0"
+                [size]="'2x'"
+              ></fa-icon>
+            </div>
+          </div>
+        </th>
+        <th class="col-9">
+          <label>Index</label>
+          <div class="row g-0">
+            <div class="col-11">
+              <input type="text" #description class="form-control filter" />
+            </div>
+            <div class="col-1">
               <fa-icon
                 style="cursor: pointer"
                 (click)="changeOrder('1')"
-                [icon]="faIconTrash"
-                [size]="'lg'"
+                [icon]="faIconorder1"
+                [size]="'2x'"
               ></fa-icon>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </div>
+        </th>
 
-    <div class="row">
-      <div class="col-sm-12 mt-1">
-        <pagination
-          [boundaryLinks]="true"
-          [customPreviousTemplate]="previousTemplate"
-          [customNextTemplate]="nextTemplate"
-          [customFirstTemplate]="firstTemplate"
-          [customLastTemplate]="lastTemplate"
-          [totalItems]="courseService.totalIdxRows"
-          class="color"
-          #page
-          [maxSize]="5"
-          [itemsPerPage]="pageSize"
-          (pageChanged)="changePage($event)"
-        >
-          <ng-template #firstTemplate>First</ng-template>
-          <ng-template #nextTemplate>
-            <fa-icon class="cursor" [icon]="faArrowRight"></fa-icon>
-          </ng-template>
-          <ng-template #previousTemplate>
-            <fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
-          </ng-template>
-          <ng-template #lastTemplate> Last </ng-template>
-        </pagination>
-      </div>
-    </div>
+        <th class="col-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let coursedet of (courseDataIndex$ | async)?.data"
+        class="d-flex"
+        (click)="editCourseIndex(coursedet.lessonId)"
+        [ngClass]="lessonId === coursedet.lessonId ? 'selected' : ''"
+      >
+        <td class="col-2" style="text-align: center">
+          {{ coursedet.lessonId }}
+        </td>
+        <td class="col-9">{{ coursedet.description }}</td>
+        <td class="col-1">
+          <fa-icon
+            style="cursor: pointer"
+            (click)="changeOrder('1')"
+            [icon]="faIconTrash"
+            [size]="'lg'"
+          ></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-sm-12 mt-1">
+    <pagination
+      [boundaryLinks]="true"
+      [customPreviousTemplate]="previousTemplate"
+      [customNextTemplate]="nextTemplate"
+      [customFirstTemplate]="firstTemplate"
+      [customLastTemplate]="lastTemplate"
+      [totalItems]="courseService.totalIdxRows"
+      class="color"
+      #page
+      [maxSize]="5"
+      [itemsPerPage]="pageSize"
+      (pageChanged)="changePage($event)"
+    >
+      <ng-template #firstTemplate>First</ng-template>
+      <ng-template #nextTemplate>
+        <fa-icon class="cursor" [icon]="faArrowRight"></fa-icon>
+      </ng-template>
+      <ng-template #previousTemplate>
+        <fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
+      </ng-template>
+      <ng-template #lastTemplate> Last </ng-template>
+    </pagination>
   </div>
 </div>

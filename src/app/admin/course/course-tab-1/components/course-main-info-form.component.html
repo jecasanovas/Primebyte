@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="Form" autocomplete="off">
     <div class="row">
-      <div class="col-2">
+      <div class="col-xs-12 col-sm-2">
         <img
           style="border: 1px dotted black; width: 10rem; object-fit: contain"
           [src]="imgShow"
@@ -10,9 +10,9 @@
             '../assets/no-image-icon.png'"
         />
       </div>
-      <div class="col-10">
-        <div class="row g-1">
-          <div class="col-6">
+      <div class="col-xs-12 col-sm-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
             <app-text-input
               [type]="'text'"
               [label]="'Name'"
@@ -23,7 +23,7 @@
               #course
             ></app-text-input>
           </div>
-          <div class="col-6">
+          <div class="col-xs-12 col-sm-6">
             <app-select-input
               [Items]="Teachers"
               [label]="'Teacher'"
@@ -33,66 +33,66 @@
               #teacher
             ></app-select-input>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <app-select-input
+              [Items]="Technology"
+              [label]="'Technology'"
+              [bindId]="'id'"
+              [bindValue]="'description'"
+              formControlName="Technology"
+              (clearValue)="onClear()"
+              (changeValue)="changeTechnology($event)"
+              #technology
+            ></app-select-input>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <app-select-input
+              [Items]="TechnologyDetail"
+              [label]="'TechnologyDetail'"
+              [bindId]="'id'"
+              [bindValue]="'description'"
+              formControlName="TechnologyDetail"
+              #techdetails
+            ></app-select-input>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <input
+              type="file"
+              id="formFile"
+              class="form-control"
+              (change)="checkFile($event)"
+              #fileUpload
+            />
+          </div>
 
-          <div class="row g-1">
-            <div class="col-6">
-              <app-select-input
-                [Items]="Technology"
-                [label]="'Technology'"
-                [bindId]="'id'"
-                [bindValue]="'description'"
-                formControlName="Technology"
-                (clearValue)="onClear()"
-                (changeValue)="changeTechnology($event)"
-                #technology
-              ></app-select-input>
-            </div>
-            <div class="col-6">
-              <app-select-input
-                [Items]="TechnologyDetail"
-                [label]="'TechnologyDetail'"
-                [bindId]="'id'"
-                [bindValue]="'description'"
-                formControlName="TechnologyDetail"
-                #techdetails
-              ></app-select-input>
-            </div>
-            <div class="col-6">
-              <input
-                type="file"
-                id="formFile"
-                class="form-control"
-                (change)="checkFile($event)"
-                #fileUpload
-              />
-            </div>
+          <div class="col-xs-12 col-sm-6">
+            <app-text-input
+              [type]="'text'"
+              [label]="'Url'"
+              formControlName="Url"
+              name="link"
+              placeholder="Url Course"
+            ></app-text-input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 offset-sm-8 col-sm-2">
+            <button (click)="addCourse()" class="btn btn-primary w-100">
+              Add
+            </button>
+          </div>
 
-            <div class="col-6">
-              <app-text-input
-                [type]="'text'"
-                [label]="'Url'"
-                formControlName="Url"
-                name="link"
-                placeholder="Url Course"
-              ></app-text-input>
-            </div>
-            <div class="row" style="flex-direction: row-reverse">
-              <div class="col-1" style="margin-left: 10px">
-                <button (click)="addCourse()" class="btn btn-primary">
-                  Add
-                </button>
-              </div>
-
-              <div class="col-1">
-                <button (click)="onSubmit()" class="btn btn-success">
-                  Save
-                </button>
-              </div>
-            </div>
+          <div class="col-xs-6 col-sm-2">
+            <button (click)="onSubmit()" class="btn btn-success w-100">
+              Save
+            </button>
           </div>
         </div>
       </div>
     </div>
+
     <app-course-main-info-table
       (editCourse$)="editCourse($event)"
       (deleteCourse$)="deleteCourse($event)"

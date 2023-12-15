@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
 import { Countries } from '../../../../Shared/Models/countries.model';
 import { Teacher } from '../../../../Shared/Models/teacher.model';
-import { Paginaton } from '../../../../Shared/Models/paginaton.model';
 
 @Component({
   selector: 'app-teacher',
@@ -43,7 +42,8 @@ export class TeacherComponent implements OnInit {
     surname: ['', Validators.required],
     country: ['', Validators.required],
     site: ['', Validators.required],
-    social: ['', Validators.required],
+    social: ['', Validators.required]
+
   });
 
   getCountries() {
@@ -129,16 +129,12 @@ export class TeacherComponent implements OnInit {
   onSubmit() {
     this.Form.markAllAsTouched();
     let formDataFile!: FormData;
-
     const fileUpload = this.fileUpload.nativeElement;
-
     const file = fileUpload.files[0];
-
-    if (fileUpload.files.count > 0) {
+    if (fileUpload.files.length > 0) {
       formDataFile = new FormData();
       formDataFile.append('file', file);
     }
-
     const teacher: Teacher = {
       id: this.idSelected,
       name: this.Form.get('name')!.value,
@@ -146,23 +142,22 @@ export class TeacherComponent implements OnInit {
       countryId: this.Form.get('country')?.value,
       urlSite: this.Form.get('site')?.value,
       urlSocial: this.Form.get('social')?.value,
-      photo: this.imageShow,
+      photo:this.imageShow,
       description: '',
       formData: formDataFile,
     };
 
-    if (!this.Form.valid) {
-      return;
-    }
+    if (!this.Form.valid) return
 
     this.dataService.saveInfoTeacher(teacher).subscribe({
       next: (response: Teacher) => {
         this.imageShow = response.photo;
-        this.toast.success('Course saved');
-        fileUpload.value = '';
-        this.changePage(this.activePage);
       },
       error: () => this.toast.error('Error Saving'),
+      complete:() => {
+        this.toast.success('Teacher Saved');
+        this.changePage(this.activePage);
+      }
     });
   }
 }

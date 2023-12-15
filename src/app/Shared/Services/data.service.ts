@@ -122,21 +122,20 @@ export class DataService {
 
   saveInfoTeacher(teacher: Teacher): Observable<Teacher> {
     if ((teacher.id ?? 0) === 0)
-      return this.http.post<Teacher>(this.endPoint + '/Teacher', teacher).pipe(
-        tap((res: Teacher) => (teacher.id = res.id)),
+      return this.http.post<number>(this.endPoint + '/Teacher', teacher).pipe(
+        tap((res: number) => (teacher.id = res)),
         exhaustMap(() => this.uploadPhotoTeacher(teacher.id, teacher.formData))
       );
     else
       return this.http
-        .put<Teacher>(this.endPoint + '/Teacher', teacher)
+        .put<number>(this.endPoint + '/Teacher', teacher)
         .pipe(
-          exhaustMap(() =>
-            this.uploadPhotoTeacher(teacher.id, teacher.formData)
+          exhaustMap(() => this.uploadPhotoTeacher(teacher.id, teacher.formData)
           )
         );
   }
 
-  uploadPhotoTeacher(id: number, formData: FormData): Observable<any> {
+  uploadPhotoTeacher(id: number, formData: FormData): Observable<Teacher> {
     let requestparms = new HttpParams();
     requestparms = requestparms.append('id', id);
     if (formData) {
@@ -144,7 +143,7 @@ export class DataService {
         params: requestparms,
       });
     } else {
-      return of('-1');
+      return of();
     }
   }
 
@@ -171,7 +170,6 @@ export class DataService {
   }
 
   saveTechnology(technology: Technology) {
-    debugger;
     if ((technology.id ?? 0) === 0)
       return this.http.post<Technology>(
         this.endPoint + '/technology',

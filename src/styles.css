@@ -19517,7 +19517,7 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 .flatpickr-day.today {
   border-color: rgba(254, 105, 106, 0.5) !important;
   color: #fe696a !important;
-}</div>
+}
 .flatpickr-day.today.selected {
   color: #fff !important;
 }
