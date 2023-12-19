@@ -74,17 +74,17 @@ export class TeacherComponent implements OnInit {
   }
 
   resetForm() {
-    this.select.input.handleClearClick();
+    this.imageShow = this.emptyFile;
     this.fileUpload.nativeElement.value = '';
     this.idSelected = 0;
     this.Form.reset();
-    this.Form.markAsPristine();
-    this.Form.markAsUntouched();
+
   }
 
   createNew() {
     this.resetForm();
     this.teacher.input.nativeElement.focus();
+    this.Form.markAsUntouched();
   }
   editTeacher(id: number) {
     this.resetForm();
