@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private router: Router, private toastr: ToastrService) {}
+    constructor(private toastr: ToastrService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(req).pipe(
@@ -24,11 +24,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                         this.toastr.error(error.error.message, error.error.statusCode);
                     }
                     if (error.status === 404) {
-                        this.router.navigateByUrl('/not-found');
                     }
                     if (error.status === 500) {
                         const navigationExtras: NavigationExtras = {state: {error: error.error}};
-                        this.router.navigateByUrl('/server-error', navigationExtras);
                     }
                 }
                 return throwError(error);

@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
 import { TextNgInputComponent } from '../../../../Framework/text-input/text-input.component';
 import { Countries } from '../../../../Shared/Models/countries.model';
 import { Teacher } from '../../../../Shared/Models/teacher.model';
-
+import {
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
@@ -17,7 +20,7 @@ export class TeacherComponent implements OnInit {
   @ViewChild('fileUpload', { static: false }) fileUpload!: ElementRef;
   @ViewChild('select', { static: false }) select!: SelectInputComponent;
   @ViewChild('teacher', { static: false }) teacher!: TextNgInputComponent;
-
+  faIconTrash = faTrash as IconProp;
   Countries: Countries[] = [];
   activePage = 1;
   pageSize = 6;
@@ -108,10 +111,15 @@ export class TeacherComponent implements OnInit {
   }
   deleteTeacher(id: number) {
     const obsteacher$: Observable<any> = this.dataService.deleteTeacher(id);
-    obsteacher$.subscribe((result) => {
-      this.toast.success('Teacher deleted');
-      this.resetForm();
-      this.changePage(this.activePage);
+    obsteacher$.subscribe({
+      error:() => {
+         this.toast.error('Teacher is in use'); 
+      },
+      complete: () =>  {
+        this.toast.error("Teacher deleted");
+        this.resetForm();
+        this.changePage(this.activePage);
+      }
     });
   }
 
@@ -151,10 +159,13 @@ export class TeacherComponent implements OnInit {
 
     this.dataService.saveInfoTeacher(teacher).subscribe({
       next: (response: Teacher) => {
+        debugger;
         this.imageShow = response.photo;
+        this.idSelected = response.id;
       },
       error: () => this.toast.error('Error Saving'),
       complete:() => {
+        debugger;
         this.toast.success('Teacher Saved');
         this.changePage(this.activePage);
       }

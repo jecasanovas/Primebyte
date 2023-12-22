@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div class="container mt-3">
+<div class="container mt-2">
   <div class="row">
-    <div class="card-body background-card-color">
-      <div class="col-sm-10 col-xs-12 col-md-9 col-xl-6 col-lg-8 mx-auto">
+    <div class="card-body d-flex justify-content-center">
+      <div class="col-sm-10 col-xs-12">
         <div class="card border-2 shadow">
           <tabset #tabset>
             <tab heading="Technology">
@@ -118,7 +118,7 @@
               </div>
 
               <div class="mx-3 items mb-3">
-                <ul class="list-group" style="display: flex">
+                <ul class="list-group d-flex" style="display: flex">
                   <li
                     *ngFor="let technologyDetail of technologyDetailsFiltered"
                     (click)="

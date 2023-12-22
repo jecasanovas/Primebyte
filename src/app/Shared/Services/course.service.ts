@@ -158,10 +158,10 @@ export class CourseService {
   }
 
 
-  saveInfoCourse(course: Course): Observable<Course> {
+  saveInfoCourse(course: Course): Observable<number> {
     if ((course.id ?? 0) === 0)
-      return this.http.post<Course>(this.endPoint + '/Course', course).pipe(
-        tap((res: Course) => (course.id = res.id)),
+      return this.http.post<number>(this.endPoint + '/Course', course).pipe(
+        tap((res: number) => (course.id = res)),
         exhaustMap(() =>
           this.dataservice.uploadPhoto(
             course.id,
@@ -172,7 +172,7 @@ export class CourseService {
       );
     else
       return this.http
-        .put<Course>(this.endPoint + '/Course', course)
+        .put<number>(this.endPoint + '/Course', course)
         .pipe(
           exhaustMap(() =>
             this.dataservice.uploadPhoto(

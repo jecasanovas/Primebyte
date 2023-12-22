@@ -18,15 +18,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
-
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
-
 import { PaginationComponent } from 'ngx-bootstrap/pagination';
 import { Teacher } from '../../../../Shared/Models/teacher.model';
 import { Course } from '../../../../Shared/Models/course.model';
 import { CourseService } from '../../../../../app/Shared/Services/course.service';
-
 
 @Component({
   selector: 'app-course-main-info-table',
@@ -91,12 +87,12 @@ export class CourseMainInfoTableComponent implements AfterViewInit, OnDestroy, O
       });
   }
 
-  changePage(e: any) {
-    this.activePage = typeof e == 'number' ? e : !e.page ? 1 : e.page;
-
-    this.pageSize = !e.itemsPerPage ? this.pageSize : e.itemsPerPage;
+  changePage(e?: any) {
+    if (e) {
+      this.activePage = typeof e == 'number' ? e : !e.page ? this.activePage : e.page;
+      this.pageSize = !e.itemsPerPage ? this.pageSize : e.itemsPerPage;
+    }
     const title = this.title?.nativeElement?.value;
-
     this.CourseData$ = this.courseService.getCourses(
       this.activePage,
       this.pageSize,

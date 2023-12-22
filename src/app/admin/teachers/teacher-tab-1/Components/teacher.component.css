@@ -36,9 +36,7 @@ img {
   padding: 2px;
 }
 
-button {
-  width: 6rem;
-}
+
 table {
   table-layout: fixed;
 }
@@ -62,11 +60,15 @@ tbody {
   overflow-y: auto;
   overflow-x: hidden;  /* Hide the horizontal scroll */
 }
+table th {
+  color: white !important;
+
+}
 
 
-thead {
-  background-color: lightseagreen;
-  color: white;
+thead  {
+  background-color: gray;
+  color: white !important;
   font-size: 1rem;
   font-weight: lighter;
 }
@@ -74,10 +76,10 @@ thead {
 tr:hover {
   background-color: lightslategray;
   cursor: pointer;
-  color: white;
+  color: white !important;
 }
 .selected {
   background-color: lightcoral;
-  color: white;
+  color: white !important;
   font-weight: bolder;
 }

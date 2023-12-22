@@ -10,6 +10,7 @@ import { TechnologyDetails } from '../../../../Shared/Models/technology-details.
 import { Technology } from '../../../../Shared/Models/tecnology.model';
 import { CourseService } from '../../../../Shared/Services/course.service';
 import { DataService } from '../../../../../app/Shared/Services/data.service';
+import { CourseMainInfoTableComponent } from './course-main-info-table-component';
 
 @Component({
   selector: 'app-course-main-info-form',
@@ -20,12 +21,14 @@ export class CourseMainInfoFormComponent implements  OnInit {
   /*************Html Elements reference *****************/
   @ViewChild('fileUpload', { static: false }) fileUpload!: ElementRef;
   @ViewChild('course', { static: false }) course!: TextNgInputComponent;
-
+  
   @ViewChild('teacher', { static: false }) teacher!: SelectInputComponent;
   @ViewChild('technology', { static: false }) technology!: SelectInputComponent;
   @ViewChild('techdetails', { static: false })
   techdetails!: SelectInputComponent;
   @ViewChild('image', { static: false }) image!: ElementRef;
+  
+  @ViewChild('courseTable', { static: false }) courseTable!: CourseMainInfoTableComponent;
 
   /************* fields  ***************/
   @Input()
@@ -33,8 +36,6 @@ export class CourseMainInfoFormComponent implements  OnInit {
 
   @Input()
   courseValue!:number;
-
-
   /******************* Data ****************************************************/
   public TotalCourses = 0;
   public idSelected = 0;
@@ -87,14 +88,7 @@ export class CourseMainInfoFormComponent implements  OnInit {
     this.idSelected = 0;
     this.courseService.IdCourse = 0;
     this.imgShow = null;
-    if (this.teacher) {
-      this.teacher.input.handleClearClick();
-    }
-    if (this.technology) {
-      this.technology.input.handleClearClick();
-
-
-    }
+    
     if (this.fileUpload) this.fileUpload.nativeElement.value = '';
 
     this.Form.reset();
@@ -171,8 +165,8 @@ export class CourseMainInfoFormComponent implements  OnInit {
   }
 
   addCourse() {
-    this.course.input.nativeElement.focus();
     this.resetForm();
+    this.course.input.nativeElement.focus();
   }
 
   findInvalidControls() {
@@ -194,7 +188,9 @@ export class CourseMainInfoFormComponent implements  OnInit {
     }
     const file = fileUpload.files[0];
     const formDataFile = new FormData();
-    formDataFile.append('file', fileUpload);
+    if (file) {
+      formDataFile.append('file', fileUpload);
+    }
 
     const course: Course = {
       id: this.idSelected,
@@ -212,6 +208,9 @@ export class CourseMainInfoFormComponent implements  OnInit {
 
     this.courseService.saveInfoCourse(course).subscribe({
       next: (result) => {
+        debugger;
+        this.courseTable.changePage();
+        this.idSelected = result;
         this.toast.success('Course saved');
       },
     });

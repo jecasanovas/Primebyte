@@ -94,6 +94,7 @@
     </div>
 
     <app-course-main-info-table
+      #courseTable
       (editCourse$)="editCourse($event)"
       (deleteCourse$)="deleteCourse($event)"
     >

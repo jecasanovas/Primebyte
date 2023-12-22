@@ -15079,9 +15079,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button > span {
 .table:not(.table-dark) thead th, .table:not(.table-dark) tbody th {
   color: #373f50 !important;
 }
-.table:not(.table-dark) td {
-  color: #4b566b !important;
-}
+
 
 .table-dark td {
   color: rgba(255, 255, 255, 0.75);
@@ -19598,4 +19596,7 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 
 .down {
   transform: rotate(180deg);
+}
+.body-background {
+  background-image: url('../src/assets/background.jpg');
 }
