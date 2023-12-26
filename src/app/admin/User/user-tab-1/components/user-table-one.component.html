@@ -1,97 +1,62 @@
 <div class="table-responsive-lg">
-  <div class="row">
-    <div class="col-12">
-      <table class="table border border-3 shadow-lg table-sm table-hover">
-        <thead>
-          <tr class="d-flex">
-            <th class="col-6">
-              <div class="row g-0 justify-content-left">
-                <div class="col-10">
-                  <label for="login">Login(Email)</label>
-                  <input
-                    #login
-                    id="login"
-                    class="form-control filter"
-                    type="text"
-                  />
-                </div>
-                <div class="col-1" style="align-self: flex-end">
-                  <fa-icon
-                    style="cursor: pointer"
-                    (click)="changeOrder('0')"
-                    [icon]="faIconorder0"
-                    [size]="'2x'"
-                  ></fa-icon>
-                </div>
+  <div class="col-12">
+    <table class="table border border-3 shadow-lg table-sm table-hover">
+      <thead>
+        <tr class="d-flex">
+          <th class="col-6">
+            <div class="row g-0 justify-content-left">
+              <div class="col-10">
+                <label for="login">Login</label>
+                <input #login id="login" class="form-control filter" type="text" />
               </div>
-            </th>
-            <th class="col-4">
-              <label>Name</label>
-              <div class="row g-0">
-                <div class="col-10">
-                  <input type="text" #name class="form-control filter" />
-                </div>
-                <div class="col-2">
-                  <fa-icon
-                    style="cursor: pointer"
-                    (click)="changeOrder('1')"
-                    [icon]="faIconorder1"
-                    [size]="'2x'"
-                  ></fa-icon>
-                </div>
+              <div class="col-1" style="align-self: flex-end">
+                <fa-icon style="cursor: pointer" (click)="changeOrder('0')" [icon]="faIconorder0"
+                  [size]="'2x'"></fa-icon>
               </div>
-            </th>
+            </div>
+          </th>
+          <th class="col-4">
+            <label>Name</label>
+            <div class="row g-0">
+              <div class="col-10">
+                <input type="text" #name class="form-control filter" />
+              </div>
+              <div class="col-2">
+                <fa-icon style="cursor: pointer" (click)="changeOrder('1')" [icon]="faIconorder1"
+                  [size]="'2x'"></fa-icon>
+              </div>
+            </div>
+          </th>
 
-            <th class="col-1"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let user of (userData$ | async)?.data"
-            class="d-flex"
-            (click)="editUser(user.id)"
-            [ngClass]="user.id === idSelected ? 'selected' : ''"
-          >
-            <td class="col-6">
-              {{ user.email }}
-            </td>
-            <td class="col-4">{{ user.name }} {{ user.surname }}</td>
-            <td class="col-2" (click)="deleteUser(user.id)">
-              <fa-icon
-                style="cursor: pointer"
-                [icon]="faIconTrash"
-                [size]="'lg'"
-              ></fa-icon>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <th class="col-1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of (userData$ | async)?.data" class="d-flex" (click)="editUser(user.id)"
+          [ngClass]="user.id === idSelected ? 'selected' : ''">
+          <td class="col-6">
+            {{ user.email }}
+          </td>
+          <td class="col-4">{{ user.name }} {{ user.surname }}</td>
+          <td class="col-2" (click)="deleteUser(user.id)">
+            <fa-icon style="cursor: pointer" [icon]="faIconTrash" [size]="'lg'"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-sm-12">
+      <pagination [boundaryLinks]="true" [customPreviousTemplate]="previousTemplate" [customNextTemplate]="nextTemplate"
+        [customFirstTemplate]="firstTemplate" [customLastTemplate]="lastTemplate" [totalItems]="userService.totalUsers"
+        class="color" #page [maxSize]="5" [itemsPerPage]="pageSize" (pageChanged)="changePage($event)">
+        <ng-template #firstTemplate>First</ng-template>
+        <ng-template #nextTemplate>
+          <fa-icon class="cursor" [icon]="faArrowRight"></fa-icon>
+        </ng-template>
+        <ng-template #previousTemplate>
+          <fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
+        </ng-template>
+        <ng-template #lastTemplate> Last </ng-template>
+      </pagination>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12 mt-10">
-    <pagination
-      [boundaryLinks]="true"
-      [customPreviousTemplate]="previousTemplate"
-      [customNextTemplate]="nextTemplate"
-      [customFirstTemplate]="firstTemplate"
-      [customLastTemplate]="lastTemplate"
-      [totalItems]="userService.totalUsers"
-      class="color"
-      #page
-      [maxSize]="5"
-      [itemsPerPage]="pageSize"
-      (pageChanged)="changePage($event)"
-    >
-      <ng-template #firstTemplate>First</ng-template>
-      <ng-template #nextTemplate>
-        <fa-icon class="cursor" [icon]="faArrowRight"></fa-icon>
-      </ng-template>
-      <ng-template #previousTemplate>
-        <fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
-      </ng-template>
-      <ng-template #lastTemplate> Last </ng-template>
-    </pagination>
   </div>
 </div>

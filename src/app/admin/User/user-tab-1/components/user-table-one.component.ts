@@ -52,7 +52,7 @@ export class UserTableOneComponent implements OnInit, OnDestroy, AfterViewInit {
 
   idSelected = 0;
   activePage = 1;
-  pageSize = 7;
+  pageSize = 5;
   idteacherfilter = 0;
 
   suscription: Subscription[] = [];
@@ -64,7 +64,7 @@ export class UserTableOneComponent implements OnInit, OnDestroy, AfterViewInit {
   faArrowLeft = faArrowLeft as IconProp;
   obsserverDebounce: Observable<any>[] = [];
 
-  constructor(public userService: UserinfoService) {}
+  constructor(public userService: UserinfoService) { }
   ngOnInit(): void {
     this.changePage(1);
   }
