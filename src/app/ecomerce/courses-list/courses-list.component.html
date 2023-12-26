@@ -1,111 +1,80 @@
-<app-nav-bar
-  [searchVisible]="true"
-  (filterbyName$)="filterbyName($event)"
-></app-nav-bar>
+<app-nav-bar [searchVisible]="true" (filterbyName$)="filterbyName($event)"></app-nav-bar>
 
 <div class="body-page">
   <div class="container">
     <div class="row">
-      <div
-        class="col-12 d-flex"
-        style="margin-top: 5rem; justify-content: center"
-      >
+      <div class="col-12 d-flex mt-2 justify-content-center">
         <div>
-          <pagination
-            [boundaryLinks]="true"
-            [customPreviousTemplate]="firstTemplate"
-            [customNextTemplate]="nextTemplate"
-            [customFirstTemplate]="previousTemplate"
-            [customLastTemplate]="lastTemplate"
-            [totalItems]="totalRows"
-            [itemsPerPage]="pageSize"
-            (pageChanged)="pageChanged($event)"
-          >
+          <pagination [boundaryLinks]="true" [customPreviousTemplate]="firstTemplate"
+            [customNextTemplate]="nextTemplate" [customFirstTemplate]="previousTemplate"
+            [customLastTemplate]="lastTemplate" [totalItems]="totalRows" [itemsPerPage]="pageSize"
+            (pageChanged)="pageChanged($event)">
             <ng-template #firstTemplate>First</ng-template>
-            <ng-template #nextTemplate
-              ><fa-icon class="cursor" [icon]="faArrowRight"></fa-icon
-            ></ng-template>
-            <ng-template #previousTemplate
-              ><fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
+            <ng-template #nextTemplate><fa-icon class="cursor" [icon]="faArrowRight"></fa-icon></ng-template>
+            <ng-template #previousTemplate><fa-icon class="cursor" [icon]="faArrowLeft"></fa-icon>
             </ng-template>
             <ng-template #lastTemplate> Last </ng-template>
           </pagination>
         </div>
       </div>
 
-      <div class="background-card-color">
-        <div class="row">
-          <div class="col-12 col-lg-2">
-            <div
-              class="d-flex align-items-center flex-column align-items-lg-center"
-            >
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="d-flex align-items-center flex-column align-items-lg-center">
+            <div class="list-style-box">
               <div class="header">
                 <label>Teachers</label>
               </div>
-              <div class="items">
-                <div class="list-group">
+              <div class="list-group">
+                <div>
                   <ul>
-                    <li
-                      class="list-group-item"
-                      *ngFor="let teachers of Teachers"
-                    >
-                      <input
-                        type="checkbox"
-                        (change)="filter(teachers.id)"
-                      /><label> &nbsp; {{ teachers.name }}</label>
+                    <li class="list-group-item" *ngFor="let teachers of Teachers">
+
+                      <label> <input type="checkbox" (change)="filter(teachers.id)" />{{
+                        teachers.name }}</label>
                     </li>
                   </ul>
                 </div>
               </div>
+            </div>
+            <div class="list-style-box">
               <div class="header mt-3">
                 <label>Technology</label>
               </div>
-              <div class="items">
+              <div>
                 <div class="list-group">
                   <ul>
-                    <li
-                      class="list-group-item"
-                      *ngFor="let technology of Technology"
-                    >
-                      <input
-                        type="checkbox"
-                        (change)="filterbyTechnology(technology.id)"
-                      /><label> &nbsp; {{ technology.description }}</label>
+                    <li class="list-group-item" *ngFor="let technology of Technology">
+                      <label> <input type="checkbox" (change)="filterbyTechnology(technology.id)" /><span> {{
+                          technology.description }}</span></label>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div class="header mt-3" *ngIf="TechnologyDetails.length > 1">
+            </div>
+            <div class="list-style-box" *ngIf="TechnologyDetails.length >0">
+              <div class="header mt-3">
                 <label>Technology Details</label>
               </div>
-              <div class="items" *ngIf="TechnologyDetails.length > 1">
+              <div>
                 <div class="list-group">
                   <ul>
-                    <li
-                      class="list-group-item"
-                      *ngFor="let technologydet of TechnologyDetails"
-                    >
-                      <input
-                        type="checkbox"
-                        (change)="filterByTechnologyDet(technologydet.id)"
-                      /><label> &nbsp; {{ technologydet.description }}</label>
+                    <li class="list-group-item" *ngFor="let technologydet of TechnologyDetails">
+                      <label> <input type="checkbox" (change)="filterByTechnologyDet(technologydet.id)" />
+                        {{technologydet.description }}</label>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-12 col-lg-10">
-            <div
-              class="card-body d-flex flex-wrap d-row justify-content-center justify-content-lg-start flex-gap-1"
-            >
-              <div *ngFor="let curso of Courses">
-                <app-course
-                  (courseSelected$)="getCourseSelected($event)"
-                  [Course]="curso"
-                ></app-course>
-              </div>
+        <div class="col-12 col-lg-9">
+          <div class="card-body d-flex flex-wrap d-row justify-content-center justify-content-lg-start"
+            style="padding: 0;">
+            <div *ngFor="let curso of Courses">
+              <app-course (courseSelected$)="getCourseSelected($event)" [Course]="curso"></app-course>
             </div>
           </div>
         </div>
