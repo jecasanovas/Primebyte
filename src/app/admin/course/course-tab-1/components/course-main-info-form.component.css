@@ -4,6 +4,13 @@
   color: white;
   border: 1px solid lightcoral;
 }
+
 ::ng-deep .page-link {
   color: black;
+}
+
+image {
+  border: 1px dotted black;
+  width: 10rem;
+  object-fit: contain
 }

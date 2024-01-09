@@ -2,79 +2,37 @@
   <form [formGroup]="Form" autocomplete="off">
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <img
-          style="border: 1px dotted black; width: 10rem; object-fit: contain"
-          [src]="imgShow"
-          #image
-          onerror="this.src =
-            '../assets/no-image-icon.png'"
-        />
+        <img class="image" [src]="imgShow" #image onerror="this.src =
+            '../assets/no-image-icon.png'" />
       </div>
       <div class="col-xs-12 col-sm-10">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
-            <app-text-input
-              [type]="'text'"
-              [label]="'Name'"
-              [id]="'id'"
-              formControlName="Course"
-              name="Course"
-              placeholder="Course"
-              #course
-            ></app-text-input>
+            <app-text-input [type]="'text'" [label]="'Name'" [id]="'id'" formControlName="Course" name="Course"
+              placeholder="Course" #course></app-text-input>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <app-select-input
-              [Items]="Teachers"
-              [label]="'Teacher'"
-              [bindId]="'id'"
-              [bindValue]="'name'"
-              formControlName="Teacher"
-              #teacher
-            ></app-select-input>
+            <app-select-input [Items]="Teachers" [label]="'Teacher'" [bindId]="'id'" [bindValue]="'name'"
+              formControlName="Teacher" #teacher></app-select-input>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6">
-            <app-select-input
-              [Items]="Technology"
-              [label]="'Technology'"
-              [bindId]="'id'"
-              [bindValue]="'description'"
-              formControlName="Technology"
-              (clearValue)="onClear()"
-              (changeValue)="changeTechnology($event)"
-              #technology
-            ></app-select-input>
+            <app-select-input [Items]="Technology" [label]="'Technology'" [bindId]="'id'" [bindValue]="'description'"
+              formControlName="Technology" (clearValue)="onClear()" (changeValue)="changeTechnology($event)"
+              #technology></app-select-input>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <app-select-input
-              [Items]="TechnologyDetail"
-              [label]="'TechnologyDetail'"
-              [bindId]="'id'"
-              [bindValue]="'description'"
-              formControlName="TechnologyDetail"
-              #techdetails
-            ></app-select-input>
+            <app-select-input [Items]="TechnologyDetail" [label]="'TechnologyDetail'" [bindId]="'id'"
+              [bindValue]="'description'" formControlName="TechnologyDetail" #techdetails></app-select-input>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <input
-              type="file"
-              id="formFile"
-              class="form-control"
-              (change)="checkFile($event)"
-              #fileUpload
-            />
+            <input type="file" id="formFile" class="form-control" (change)="checkFile($event)" #fileUpload />
           </div>
 
           <div class="col-xs-12 col-sm-6">
-            <app-text-input
-              [type]="'text'"
-              [label]="'Url'"
-              formControlName="Url"
-              name="link"
-              placeholder="Url Course"
-            ></app-text-input>
+            <app-text-input [type]="'text'" [label]="'Url'" formControlName="Url" name="link"
+              placeholder="Url Course"></app-text-input>
           </div>
         </div>
         <div class="row">
@@ -93,11 +51,7 @@
       </div>
     </div>
 
-    <app-course-main-info-table
-      #courseTable
-      (editCourse$)="editCourse($event)"
-      (deleteCourse$)="deleteCourse($event)"
-    >
+    <app-course-main-info-table #courseTable (editCourse$)="editCourse($event)" (deleteCourse$)="deleteCourse($event)">
     </app-course-main-info-table>
   </form>
 </div>
